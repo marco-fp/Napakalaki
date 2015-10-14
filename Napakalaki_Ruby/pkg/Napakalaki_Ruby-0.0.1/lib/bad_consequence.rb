@@ -13,7 +13,7 @@ class BadConsequence
   end
   
   private_class_method :new
-  attr_read :text, :levels, :nVisibleTreasures, :nHiddenTreasures, :death
+  attr_reader :text, :levels, :nVisibleTreasures, :nHiddenTreasures, :death
   
   def BadConsequence.newLevelNumberOfTreasures(aText, someLevels, someVisibleTreasures, someHiddenTreasures)
     self.initialize(aText,someLevels,someVisibleTreasures, someHiddenTreasures,nil,nil,false)

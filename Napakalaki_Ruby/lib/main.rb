@@ -1,6 +1,8 @@
 #encoding: utf-8
-require 'prize'
-require 'bad_consequence.rb'
+require_relative 'prize'
+require_relative 'bad_consequence'
+require_relative 'treasure_kind'
+require_relative 'monster'
 
 monsters = Array.new
 

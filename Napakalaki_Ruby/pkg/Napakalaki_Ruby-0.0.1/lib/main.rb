@@ -1,4 +1,8 @@
 #encoding: utf-8
+require_relative 'prize'
+require_relative 'bad_consequence'
+require_relative 'treasure_kind'
+require_relative 'monster'
 
 monsters = Array.new
 
