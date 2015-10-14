@@ -24,7 +24,7 @@ bad_consequence = BadConsequence.newLevelSpecificTreasures('Te atrapan para llev
 monsters << Monster.new('Ángeles de la noche ibicenca',14,prize,bad_consequence)
 
 prize = Prize.new(3,1)
-bad_consequence = BadConsequence.newLevelSpecificTreasures('Pierdes todos tus tesoros visibles.', 0, [TreasureKind::ARMOR,TreasureKind::SHOE, TreasureKind::BOTHHANDS, 
+bad_consequence = BadConsequence.newLevelSpecificTreasures('Pierdes todos tus tesoros visibles.', 0, [TreasureKind::ARMOR,TreasureKind::SHOES, TreasureKind::BOTHHANDS, 
     TreasureKind::ONEHAND, TreasureKind::HELMET], nil)
 monsters << Monster.new('El gorrón en el umbral', 10, prize, bad_consequence)
 

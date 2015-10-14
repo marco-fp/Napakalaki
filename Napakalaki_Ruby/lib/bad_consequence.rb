@@ -15,16 +15,16 @@ class BadConsequence
   private_class_method :new
   attr_reader :text, :levels, :nVisibleTreasures, :nHiddenTreasures, :death
   
-  def BadConsequence.newLevelNumberOfTreasures(aText, someLevels, someVisibleTreasures, someHiddenTreasures)
-    self.initialize(aText,someLevels,someVisibleTreasures, someHiddenTreasures,nil,nil,false)
+  def self.newLevelNumberOfTreasures(aText, someLevels, someVisibleTreasures, someHiddenTreasures)
+    new(aText,someLevels,someVisibleTreasures, someHiddenTreasures,nil,nil,false)
   end
   
-  def BadConsequence.newLevelSpecificTreasures(aText, someLevels, someSpecificVisibleTreasures, someSpecificHiddenTreasures)
-    self.initialize(aText, someLevels, nil,nil,someSpecificVisibleTreasures,someSpecificHiddenTreasures,false)
+  def self.newLevelSpecificTreasures(aText, someLevels, someSpecificVisibleTreasures, someSpecificHiddenTreasures)
+    new(aText, someLevels, nil,nil,someSpecificVisibleTreasures,someSpecificHiddenTreasures,false)
   end
   
-  def BadConsequence.newDeath(aText)
-    self.initialize(aText,nil,nil,nil,nil,nil,true)
+  def self.newDeath(aText)
+    new(aText,nil,nil,nil,nil,nil,true)
   end
   
   def to_s
