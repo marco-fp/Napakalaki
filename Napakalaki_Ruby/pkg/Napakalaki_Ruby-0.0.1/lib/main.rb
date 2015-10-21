@@ -84,5 +84,6 @@ monsters << Monster.new('El lenguas',20,prize,bad_consequence)
 prize = Prize.new(1,1)
 bad_consequence = BadConsequence.newLevelSpecificTreasures('Te faltan manos para tanta cabeza. Pierdes 3 niveles y tus tesoros visibles de las dos manos.',
   3, [TreasureKind::BOTHHANDS],nil)
+monsters << Monster.new('Bicéfalo',20,prize,bad_consequence)
 
 puts monsters
