@@ -47,12 +47,20 @@ public class BadConsequence {
     }
     
     public String toString(){
-        return "--- Mal Rollo --- \n" + "Texto: " + text + "\n Niveles: " + levels 
-                + "\n Num. tesoros visibles: " + nVisibleTreasures + 
-                "\n Num. tesoros ocultos: " + nHiddenTreasures +
-                "\n Lista tesoros visibles: " + specificVisibleTreasures +
-                "\n Lista tesoros ocultos: " + specificHiddenTreasures + 
-                "\n Muerte: " + death + "\n";
+        String description = "--- Mal Rollo --- \n" + "Texto: " + text + "\n";
+        if(isDeath())
+            description += "Muerte: " + death + "\n";
+        else
+            description += "Pérdida de niveles: " + levels + "\n";
+        
+        if(nVisibleTreasures == 0 && nHiddenTreasures == 0)
+            description += "Num. tesoros visibles: " + nVisibleTreasures + "\n"
+                + "Num. tesoros ocultos: " + nHiddenTreasures + "\n";
+        else if(specificVisibleTreasures != null && specificHiddenTreasures != null)
+                description += "Lista tesoros visibles: " + specificVisibleTreasures + "\n"
+                + "Lista tesoros ocultos: " + specificHiddenTreasures + "\n";
+                
+        return description;
     }
 
     public String getText() {
