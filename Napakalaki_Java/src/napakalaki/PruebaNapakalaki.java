@@ -49,7 +49,7 @@ public class PruebaNapakalaki {
        // Chibithulhu
        tVisible.add(TreasureKind.HELMET);
        bc = new BadConsequence("Embobados con el lindo primigenio te descartas de tu casco visible.",
-       0,tVisible,tHidden);
+       0,tVisible,null);
        prize = new Prize(1,1);
        monstruos.add(new Monster("Chibithulhu",2,bc,prize));
        
@@ -57,7 +57,7 @@ public class PruebaNapakalaki {
        
        // El sopor de Dunwich
        tVisible.add(TreasureKind.SHOES);
-       bc = new BadConsequence("El primordial bostezo contagioso. Pierdes el calzado visible.",0,tVisible,tHidden);
+       bc = new BadConsequence("El primordial bostezo contagioso. Pierdes el calzado visible.",0,tVisible,null);
        prize = new Prize(1,1);
        monstruos.add(new Monster("El sopor de Dunwich",2,bc,prize));
        
@@ -70,7 +70,7 @@ public class PruebaNapakalaki {
        tVisible.add(TreasureKind.HELMET);
        tVisible.add(TreasureKind.ONEHAND);
        tVisible.add(TreasureKind.SHOES);
-       bc = new BadConsequence("Pierdes todos tus tesoros visibles.",0,tVisible,tHidden);
+       bc = new BadConsequence("Pierdes todos tus tesoros visibles.",0,tVisible,null);
        prize = new Prize(3,1);
        monstruos.add(new Monster("El gorrón en el umbral",10,bc,prize));
        
@@ -79,7 +79,7 @@ public class PruebaNapakalaki {
        // H.P Munchcraft
        
        tVisible.add(TreasureKind.ARMOR);
-       bc = new BadConsequence("Pierdes la armadura visible.",0,tVisible,tHidden);
+       bc = new BadConsequence("Pierdes la armadura visible.",0,tVisible,null);
        prize = new Prize(2,1);
        monstruos.add(new Monster("H.P. Munchcraft",6,bc,prize));
        
@@ -88,7 +88,7 @@ public class PruebaNapakalaki {
        // Bichgooth
        
        tVisible.add(TreasureKind.ARMOR);
-       bc = new BadConsequence("Sientes bichos bajo la ropa. Descarta la armadura visible.",0,tVisible,tHidden);
+       bc = new BadConsequence("Sientes bichos bajo la ropa. Descarta la armadura visible.",0,tVisible,null);
        prize = new Prize(1,1);
        monstruos.add(new Monster("Bichgooth",2,bc,prize));
        
@@ -115,7 +115,7 @@ public class PruebaNapakalaki {
        // Dameargo
        
        tVisible.add(TreasureKind.ONEHAND);
-       bc = new BadConsequence("Te intentas escaquear. Pierdes una mano visible.",0,tVisible,tHidden);
+       bc = new BadConsequence("Te intentas escaquear. Pierdes una mano visible.",0,tVisible,null);
        prize = new Prize(2,1);
        monstruos.add(new Monster("Dameargo",1,bc,prize));
        
@@ -141,7 +141,7 @@ public class PruebaNapakalaki {
        
        // Roboggoth
        tVisible.add(TreasureKind.BOTHHANDS);
-       bc = new BadConsequence("La quinta directiva primaria te obliga a perder 2 niveles y un tesoro de las dos manos visible.",2,tVisible,tHidden);
+       bc = new BadConsequence("La quinta directiva primaria te obliga a perder 2 niveles y un tesoro de las dos manos visible.",2,tVisible,null);
        prize = new Prize(2,1);
        monstruos.add(new Monster("Roboggoth",8,bc,prize));
        
@@ -150,7 +150,7 @@ public class PruebaNapakalaki {
        // El espia
        
        tVisible.add(TreasureKind.HELMET);
-       bc = new BadConsequence("Te asusta en la noche. Pierdes un casco visible.",0,tVisible,tHidden);
+       bc = new BadConsequence("Te asusta en la noche. Pierdes un casco visible.",0,tVisible,null);
        prize = new Prize(1,1);
        monstruos.add(new Monster("El espia",5,bc,prize));
        
@@ -164,7 +164,7 @@ public class PruebaNapakalaki {
        
        // Bicéfalo
        tVisible.add(TreasureKind.BOTHHANDS);
-       bc = new BadConsequence("Te faltan manos para tanta cabeza. Pierdes 3 niveles y tus tesoros visibles de las dos manos.",3,tVisible,tHidden);
+       bc = new BadConsequence("Te faltan manos para tanta cabeza. Pierdes 3 niveles y tus tesoros visibles de las dos manos.",3,tVisible,null);
        prize = new Prize(1,1);
        monstruos.add(new Monster("Bicéfalo",20,bc,prize));
        
