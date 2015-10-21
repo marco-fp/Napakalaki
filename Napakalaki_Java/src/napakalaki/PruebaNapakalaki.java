@@ -33,8 +33,8 @@ public class PruebaNapakalaki {
        prize = new Prize(4,1);
        monstruos.add(new Monster("Angeles de la noche ibicenca", 14, bc, prize));
        
-       tVisible.clear();
-       tHidden.clear();
+       tVisible = new ArrayList();
+       tHidden = new ArrayList();
        
        // 3 Byakhees de bonanza
        tVisible.add(TreasureKind.ARMOR);
@@ -43,8 +43,8 @@ public class PruebaNapakalaki {
        prize = new Prize(2,1);
        monstruos.add(new Monster("3 Byakhees de bonanza",8,bc,prize));
        
-       tVisible.clear();
-       tHidden.clear();
+       tVisible = new ArrayList();
+       tHidden = new ArrayList();
        
        // Chibithulhu
        tVisible.add(TreasureKind.HELMET);
@@ -53,7 +53,7 @@ public class PruebaNapakalaki {
        prize = new Prize(1,1);
        monstruos.add(new Monster("Chibithulhu",2,bc,prize));
        
-       tVisible.clear();
+       tVisible = new ArrayList();
        
        // El sopor de Dunwich
        tVisible.add(TreasureKind.SHOES);
@@ -61,7 +61,7 @@ public class PruebaNapakalaki {
        prize = new Prize(1,1);
        monstruos.add(new Monster("El sopor de Dunwich",2,bc,prize));
        
-       tVisible.clear();
+       tVisible = new ArrayList();
        
        // El gorrón en el umbral
        
@@ -74,7 +74,7 @@ public class PruebaNapakalaki {
        prize = new Prize(3,1);
        monstruos.add(new Monster("El gorrón en el umbral",10,bc,prize));
        
-       tVisible.clear();
+       tVisible = new ArrayList();
        
        // H.P Munchcraft
        
@@ -83,7 +83,7 @@ public class PruebaNapakalaki {
        prize = new Prize(2,1);
        monstruos.add(new Monster("H.P. Munchcraft",6,bc,prize));
        
-       tVisible.clear();
+       tVisible = new ArrayList();
        
        // Bichgooth
        
@@ -92,7 +92,7 @@ public class PruebaNapakalaki {
        prize = new Prize(1,1);
        monstruos.add(new Monster("Bichgooth",2,bc,prize));
        
-       tVisible.clear();
+       tVisible = new ArrayList();
        
        // La que redacta en las tinieblas
        
@@ -119,7 +119,7 @@ public class PruebaNapakalaki {
        prize = new Prize(2,1);
        monstruos.add(new Monster("Dameargo",1,bc,prize));
        
-       tVisible.clear();
+       tVisible = new ArrayList();
        
        // Pollipólipo volante
        
@@ -145,7 +145,7 @@ public class PruebaNapakalaki {
        prize = new Prize(2,1);
        monstruos.add(new Monster("Roboggoth",8,bc,prize));
        
-       tVisible.clear();
+       tVisible = new ArrayList();
        
        // El espia
        
@@ -154,7 +154,7 @@ public class PruebaNapakalaki {
        prize = new Prize(1,1);
        monstruos.add(new Monster("El espia",5,bc,prize));
        
-       tVisible.clear();
+       tVisible = new ArrayList();
        
        // El lenguas
        
@@ -168,7 +168,7 @@ public class PruebaNapakalaki {
        prize = new Prize(1,1);
        monstruos.add(new Monster("Bicéfalo",20,bc,prize));
        
-       tVisible.clear();
+       tVisible = new ArrayList();
        
        //System.out.println(monstruos.get(0).toString());
        //System.out.println(monstruos.get(2).toString());
