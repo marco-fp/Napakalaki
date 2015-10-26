@@ -93,4 +93,23 @@ bad_consequence = BadConsequence.newLevelSpecificTreasures('Te faltan manos para
   3, [TreasureKind::BOTHHANDS],nil)
 monsters << Monster.new('Bicéfalo',20,prize,bad_consequence)
 
-puts monsters
+def nivel_superior_10(monsters)
+  for monster in monsters
+    if (monster.combatLevel > 10)
+      puts monster
+    end
+  end
+end
+
+def solo_perdida_niveles(monsters)
+  for monster in monsters
+    bc = monster.bc
+    if(bc.levels != 0 && bc.nHiddenTreasures == 0 && bc.nVisibleTreasures && bc.death == false && 
+          bc.specificVisibleTreasures == nil && bc.specificHiddenTreasures == nil)
+      puts monster
+    end
+  end
+end
+
+#nivel_superior_10(monsters)
+solo_perdida_niveles(monsters)

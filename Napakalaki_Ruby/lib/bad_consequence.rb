@@ -13,13 +13,13 @@ class BadConsequence
     @levels = someLevels
     @nVisibleTreasures = someVisibleTreasures
     @nHiddenTreasures = someHiddenTreasures
-    @SpecificVisibleTreasures = someSpecificVisibleTreasures
-    @SpecificHiddenTreasures = someSpecificHiddenTreasures
+    @specificVisibleTreasures = someSpecificVisibleTreasures
+    @specificHiddenTreasures = someSpecificHiddenTreasures
     @death = death
   end
   
   private_class_method :new
-  attr_reader :text, :levels, :nVisibleTreasures, :nHiddenTreasures, :death
+  attr_reader :text, :levels, :nVisibleTreasures, :nHiddenTreasures, :death, :specificVisibleTreasures, :specificHiddenTreasures
   
   def self.newLevelNumberOfTreasures(aText, someLevels, someVisibleTreasures, someHiddenTreasures)
     new(aText,someLevels,someVisibleTreasures, someHiddenTreasures,nil,nil,false)

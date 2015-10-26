@@ -15,7 +15,7 @@ class Monster
     @badConsequence = bc
   end
   
-  attr_reader :name, :level, :prize, :bc
+  attr_reader :name, :combatLevel, :prize, :bc
   
   def to_s
     "--- Monstruo --- \n 
