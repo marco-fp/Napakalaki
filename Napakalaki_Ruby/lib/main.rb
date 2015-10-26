@@ -120,6 +120,19 @@ def ganancia_sup_1(monsters)
   end
 end
 
+def perdida_especifica(monsters)
+  for monster in monsters
+    bc = monster.bc
+    if(bc.levels == 0 && bc.nHiddenTreasures == 0 && bc.nVisibleTreasures == 0 && bc.death == false && 
+          (bc.specificVisibleTreasures != nil || bc.specificHiddenTreasures != nil))
+      puts monster
+    end
+  end
+end
+
 #nivel_superior_10(monsters)
 #solo_perdida_niveles(monsters)
-ganancia_sup_1(monsters)
+#ganancia_sup_1(monsters)
+
+# TODO: imprimir info de los arrays especificos.
+ perdida_especifica(monsters)

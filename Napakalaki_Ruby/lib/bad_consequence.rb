@@ -26,11 +26,11 @@ class BadConsequence
   end
   
   def self.newLevelSpecificTreasures(aText, someLevels, someSpecificVisibleTreasures, someSpecificHiddenTreasures)
-    new(aText, someLevels, nil,nil,someSpecificVisibleTreasures,someSpecificHiddenTreasures,false)
+    new(aText, someLevels, 0,0,someSpecificVisibleTreasures,someSpecificHiddenTreasures,false)
   end
   
   def self.newDeath(aText)
-    new(aText,nil,nil,nil,nil,nil,true)
+    new(aText,0,0,0,nil,nil,true)
   end
   
   def to_s
