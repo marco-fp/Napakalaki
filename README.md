@@ -1,7 +1,5 @@
 # Napakalaki
 
 Practica de la asignatura PDOO.
-Alumnos:
-
-- Marco Manuel Fernández Pranno
-- Javier Escobar Cerezo
+Alumno
+	- Marco Manuel Fernández Pranno
