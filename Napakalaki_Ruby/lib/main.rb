@@ -111,5 +111,15 @@ def solo_perdida_niveles(monsters)
   end
 end
 
+def ganancia_sup_1(monsters)
+  for monster in monsters
+    prize = monster.prize
+    if(prize.level > 1)
+      puts monster
+    end
+  end
+end
+
 #nivel_superior_10(monsters)
-solo_perdida_niveles(monsters)
+#solo_perdida_niveles(monsters)
+ganancia_sup_1(monsters)
