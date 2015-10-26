@@ -104,7 +104,7 @@ end
 def solo_perdida_niveles(monsters)
   for monster in monsters
     bc = monster.bc
-    if(bc.levels != 0 && bc.nHiddenTreasures == 0 && bc.nVisibleTreasures && bc.death == false && 
+    if(bc.levels != 0 && bc.nHiddenTreasures == 0 && bc.nVisibleTreasures == 0 && bc.death == false && 
           bc.specificVisibleTreasures == nil && bc.specificHiddenTreasures == nil)
       puts monster
     end

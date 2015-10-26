@@ -12,7 +12,7 @@ class Monster
     @name = name
     @combatLevel = level
     @prize = prize
-    @badConsequence = bc
+    @bc = bc
   end
   
   attr_reader :name, :combatLevel, :prize, :bc
@@ -20,6 +20,6 @@ class Monster
   def to_s
     "--- Monstruo --- \n 
     Nombre: #{@name} \n Nivel de combate: #{@combatLevel} \n
-    #{@prize.to_s} \n #{@badConsequence.to_s} \n"
+    #{@prize.to_s} \n #{@bc.to_s} \n"
   end
 end
