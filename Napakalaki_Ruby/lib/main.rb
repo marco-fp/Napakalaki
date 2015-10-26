@@ -1,4 +1,11 @@
 #encoding: utf-8
+
+=begin
+  Marco Manuel Fernández Pranno, 2015 (Granada)
+  Para la asignatura PDOO (Universidad de Granada)
+  Licencia GPLv3 a partir del 15/02/16, hasta entonces todos los derechos reservados.
+=end 
+
 require_relative 'prize'
 require_relative 'bad_consequence'
 require_relative 'treasure_kind'
