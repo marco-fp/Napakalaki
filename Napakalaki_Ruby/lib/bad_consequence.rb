@@ -38,8 +38,8 @@ class BadConsequence
     Texto: #{@text} \n Niveles: #{@levels} \n
     nVisibles: #{@nVisibleTreasures} \n
     nHidden: #{@nHiddenTreasures} \n
-    SpecificVisible: #{@SpecificVisibleTreasures.to_s} \n
-    SpecificHidden: #{@SpecificHiddenTreasures.to_s} \n
+    SpecificVisible: #{@specificVisibleTreasures} \n
+    SpecificHidden: #{@specificHiddenTreasures} \n
     Death: #{@death} \n"
   end
   
