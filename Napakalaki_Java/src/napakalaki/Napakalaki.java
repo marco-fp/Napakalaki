@@ -8,8 +8,67 @@ package napakalaki;
 
 import java.util.ArrayList;
 
-public class PruebaNapakalaki {
+public class Napakalaki {
+    
+    private static final Napakalaki instance = new Napakalaki();
+    
+    private Napakalaki(){};
+    
+    private void initPlayers(ArrayList<String> names){
+        
+    }
+    
+    private Player nextPlayer(){
+    
+    }
+    
+    private boolean nextTurnAllowed(){
+        return false;
+    }
+    
+    private void setEnemies(){}
+    
+    public static Napakalaki getInstance(){
+        return instance;
+    }
 
+    public CombatResult developCombat(){
+        
+    }
+    
+    public void discardVisibleTreasures(ArrayList<Treasure> treasures){
+        
+    }
+    
+    public void discardHiddenTreasures(ArrayList<Treasure> treasures){
+        
+    }    
+    
+    public void makeTreasuresVisible(ArrayList<Treasure> treasures){
+        
+    }
+    
+    public void initGame(ArrayList<String> players){
+        
+    }
+    
+    public Player getCurrentPlayer(){
+        
+    }
+    
+    public Monster getCurrentMonster(){
+        return null;
+    }
+    
+    public boolean nextTurn(){
+        return false;
+    }
+    
+    public boolean endOfGame(CombatResult result){
+        return false;
+    }
+    
+    
     public static void main(String[] args) {
         
         ArrayList<Monster> monstruos = new ArrayList();
@@ -216,5 +275,7 @@ public class PruebaNapakalaki {
             }
         }
     }
+    
+    
     
 }
