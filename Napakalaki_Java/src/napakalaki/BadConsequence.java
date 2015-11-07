@@ -14,8 +14,16 @@ public class BadConsequence {
     private int nVisibleTreasures;
     private int nHiddenTreasures;
     private boolean death;
+    
     private ArrayList<TreasureKind> specificHiddenTreasures = null;
     private ArrayList<TreasureKind> specificVisibleTreasures = null;
+    
+    static final int MAXTREASURES = 10;
+    
+    public boolean isEmpty(){
+        return false;
+    }
+    
     
     public BadConsequence(String text, int levels, int nVisible, int nHidden){
         this.text = text;
@@ -25,9 +33,9 @@ public class BadConsequence {
         this.death = false;
     }
     
-    public BadConsequence(String text){
+    public BadConsequence(String text, boolean death){
         this.text = text;
-        this.death = true;
+        this.death = death;
         this.levels = 0;
         this.nVisibleTreasures = 0;
         this.nHiddenTreasures = 0;
@@ -45,6 +53,7 @@ public class BadConsequence {
         this.death = false;
     }
     
+    // Eliminar
     public String toString(){
         String description = "--- Mal Rollo --- \n" + "Texto: " + text + "\n";
         
@@ -65,7 +74,8 @@ public class BadConsequence {
                 
         return description;
     }
-
+    
+    // Eliminar
     public String getText() {
         return text;
     }
@@ -74,14 +84,15 @@ public class BadConsequence {
         return levels;
     }
 
-    public int getnVisibleTreasures() {
+    public int getNVisibleTreasures() {
         return nVisibleTreasures;
     }
 
-    public int getnHiddenTreasures() {
+    public int getNHiddenTreasures() {
         return nHiddenTreasures;
     }
-
+    
+    // Eliminar
     public boolean isDeath() {
         return death;
     }
@@ -94,6 +105,16 @@ public class BadConsequence {
         return specificVisibleTreasures;
     }
     
+    public void substractVisibleTreasures(Treasure t){
+        
+    }
     
+    public void substractHiddenTreasures(Treasure t){
+        
+    }
+    
+    public BadConsequence adjustToFitTreasureLists(ArrayList<Treasure> visible, ArrayList<Treasure> hidden){
+        return null;
+    }
     
 }

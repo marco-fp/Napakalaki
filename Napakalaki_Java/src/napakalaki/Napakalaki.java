@@ -19,7 +19,7 @@ public class Napakalaki {
     }
     
     private Player nextPlayer(){
-    
+        return null;
     }
     
     private boolean nextTurnAllowed(){
@@ -33,7 +33,7 @@ public class Napakalaki {
     }
 
     public CombatResult developCombat(){
-        
+        return null;
     }
     
     public void discardVisibleTreasures(ArrayList<Treasure> treasures){
@@ -53,7 +53,7 @@ public class Napakalaki {
     }
     
     public Player getCurrentPlayer(){
-        
+        return null;
     }
     
     public Monster getCurrentMonster(){
@@ -160,7 +160,7 @@ public class Napakalaki {
        
        // Los hondos
        
-       bc = new BadConsequence("Estos monstruos resultan bastante superficiales y te aburren mortalmente. Estás muerto.");
+       bc = new BadConsequence("Estos monstruos resultan bastante superficiales y te aburren mortalmente. Estás muerto.",true);
        prize = new Prize(2,1);
        monstruos.add(new Monster("Los hondos",8,bc,prize));
        
@@ -187,13 +187,13 @@ public class Napakalaki {
        
        // Yskhtihyssg-Goth
        
-       bc = new BadConsequence("No le hace gracia que pronuncien mal su nombre. Estás muerto");
+       bc = new BadConsequence("No le hace gracia que pronuncien mal su nombre. Estás muerto",true);
        prize = new Prize(3,1);
        monstruos.add(new Monster("Yskhtihyssg-Goth",12,bc,prize));
        
        // Familia feliz
        
-       bc = new BadConsequence("La familia te atrapa. Estás muerto");
+       bc = new BadConsequence("La familia te atrapa. Estás muerto",true);
        prize = new Prize(4,1);
        monstruos.add(new Monster("Familia feliz",1,bc,prize));
        
@@ -248,7 +248,7 @@ public class Napakalaki {
         System.out.println("--- Monstruos con mal rollo de pérdida de niveles --- \n");
         for(Monster monstruo: monstruos){
             BadConsequence bc = monstruo.getBadConsequence();
-            if(bc.getLevels() != 0 && !bc.isDeath() && bc.getnHiddenTreasures() == 0 && bc.getnVisibleTreasures() == 0
+            if(bc.getLevels() != 0 && !bc.isDeath() && bc.getNHiddenTreasures() == 0 && bc.getNVisibleTreasures() == 0
                     && bc.getSpecificHiddenTreasures() == null && bc.getSpecificVisibleTreasures() == null)
             {
                 System.out.println(monstruo.toString());
@@ -269,7 +269,7 @@ public class Napakalaki {
         System.out.println("--- Monstruos con pérdidas específicas de tesoros --- \n");
         for (Monster monstruo : monstruos) {
             BadConsequence bc = monstruo.getBadConsequence();
-            if (bc.getLevels() == 0 && !bc.isDeath() && bc.getnHiddenTreasures() == 0 && bc.getnVisibleTreasures() == 0
+            if (bc.getLevels() == 0 && !bc.isDeath() && bc.getNHiddenTreasures() == 0 && bc.getNVisibleTreasures() == 0
                    && (bc.getSpecificHiddenTreasures() != null || bc.getSpecificVisibleTreasures() != null)) {
                 System.out.println(monstruo.toString());
             }
