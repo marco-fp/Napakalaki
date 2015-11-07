@@ -11,8 +11,17 @@ public class Player {
     private boolean dead = true;
     private boolean canISteal = true;
     
+    
+    Player enemy = null;
+    ArrayList<Treasure> visibleTreasures = null;
+    ArrayList<Treasure> hiddenTreasures = null;
+    BadConsequence pendingBadConsequence = null;
+    
+    
     public Player(String name){
         this.name = name;
+        this.visibleTreasures = new ArrayList();
+        this.hiddenTreasures = new ArrayList();
     }
     
     public String getName(){

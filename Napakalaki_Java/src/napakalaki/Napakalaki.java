@@ -10,9 +10,19 @@ import java.util.ArrayList;
 
 public class Napakalaki {
     
+    Monster currentMonster = null;
+    CardDealer dealer = null;
+    Player currentPlayer = null;
+    ArrayList<Player> players = null;
+    
     private static final Napakalaki instance = new Napakalaki();
     
-    private Napakalaki(){};
+    private Napakalaki(){
+        
+        dealer = CardDealer.getInstance();
+        players = new ArrayList();
+        
+    };
     
     private void initPlayers(ArrayList<String> names){
         
