@@ -27,7 +27,16 @@ public class Monster {
     public int getCombatLevel() {
         return combatLevel;
     }
+    
+    public int getLevelsGained(){
+        return prize.getLevel();
+    }
+    
+    public int getTreasuresGained(){
+        return prize.getTreasure();
+    }
 
+    // Eliminar
     public Prize getPrize() {
         return prize;
     }
