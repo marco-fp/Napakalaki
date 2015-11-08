@@ -1,5 +1,6 @@
 class Player
-
+  
+  @@MAXLEVEL = 10
   
   def initialize(name)
     @name = name

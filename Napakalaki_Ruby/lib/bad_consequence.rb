@@ -8,6 +8,8 @@
 
 class BadConsequence
   
+  @@MAXTREASURES = 10
+  
   def initialize(aText, someLevels, someVisibleTreasures, someHiddenTreasures, someSpecificVisibleTreasures, someSpecificHiddenTreasures, death)
     @text = aText
     @levels = someLevels
