@@ -13,14 +13,15 @@ require_relative 'monster'
 require 'singleton'
 
 
-
-
 class Napakalaki 
   
   include Singleton
   
   def initialize
-    
+    @currentplayer = nil
+    @players = Array.new
+    @dealer = CardDealer.instance
+    @currentmonster = nil
   end
   
   def initplayers( names )

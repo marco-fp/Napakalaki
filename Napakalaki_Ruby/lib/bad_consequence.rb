@@ -20,7 +20,7 @@ class BadConsequence
     @death = death
   end
   
-  def isEmpty()
+  def isempty()
     
   end
   

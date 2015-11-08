@@ -5,6 +5,11 @@ class CardDealer
   include Singleton
   
   def initialize
+    @usedmonsters = Array.new
+    @unusedmonsters = Array.new
+    
+    @usedtreasures = Array.new
+    @unusedtreasures = Array.new
     
   end
   

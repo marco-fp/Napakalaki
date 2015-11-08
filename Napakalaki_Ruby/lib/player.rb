@@ -7,6 +7,10 @@ class Player
     @level = 0
     @dead = true
     @canISteal = true
+    @enemy = nil
+    @visibletreasures = Array.new
+    @hiddentreasures = Array.new
+    @pendingbadconsequence = nil
   end
 
   attr_reader :name,:level,:canISteal,:dead,:hiddentreasures,:visibletreasures
