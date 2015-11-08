@@ -242,6 +242,101 @@ public class Napakalaki {
        //System.out.println(monstruos.get(2).toString());
        gananciaNivelesSuperiorA1(monstruos);
        perdidaEspecificaTesoros(monstruos);
+       
+       
+       ArrayList<Treasure> tesoros = new ArrayList();
+       Treasure tesoro = new Treasure("¡Sí mi amo!", 4, TreasureKind.HELMET);
+       tesoros.add(tesoro);
+       
+       tesoro = new Treasure("Botas de investigación", 3, TreasureKind.SHOES);
+       tesoros.add(tesoro);
+       
+       tesoro = new Treasure("Capucha de Cthulhu", 3, TreasureKind.HELMET);
+       tesoros.add(tesoro);
+       
+       tesoro = new Treasure("A prueba de balas", 2, TreasureKind.ARMOR);
+       tesoros.add(tesoro);
+       
+       tesoro = new Treasure("Botas de lluvia ácida", 1, TreasureKind.BOTHHANDS); // ¿ BOTHHANDS ?
+       tesoros.add(tesoro);
+       
+       tesoro = new Treasure("Casco minero", 2, TreasureKind.HELMET);
+       tesoros.add(tesoro);
+       
+       tesoro = new Treasure("Ametralladora Thompson", 4, TreasureKind.BOTHHANDS);
+       tesoros.add(tesoro);
+       
+       tesoro = new Treasure("Camiseta de la UGR", 1, TreasureKind.ARMOR);
+       tesoros.add(tesoro);
+       
+       tesoro = new Treasure("Clavo de rail ferroviario", 3, TreasureKind.ONEHAND);
+       tesoros.add(tesoro);
+       
+       tesoro = new Treasure("Cuchillo de sushi arcano", 2, TreasureKind.ONEHAND);
+       tesoros.add(tesoro);
+       
+       tesoro = new Treasure("Fez alópodo", 3, TreasureKind.HELMET);
+       tesoros.add(tesoro);
+       
+       tesoro = new Treasure("Hacha prehistórica", 2, TreasureKind.ONEHAND);
+       tesoros.add(tesoro);
+       
+       tesoro = new Treasure("El aparato del Pr. Tesla", 4, TreasureKind.ARMOR);
+       tesoros.add(tesoro);
+       
+       tesoro = new Treasure("Gaita", 4, TreasureKind.BOTHHANDS);
+       tesoros.add(tesoro);
+       
+       tesoro = new Treasure("Insecticida", 2, TreasureKind.ONEHAND);
+       tesoros.add(tesoro);
+       
+       tesoro = new Treasure("Escopeta de 3 cañones", 4, TreasureKind.BOTHHANDS);
+       tesoros.add(tesoro);
+       
+       tesoro = new Treasure("Garabato místico", 2, TreasureKind.ONEHAND);
+       tesoros.add(tesoro);
+       
+       tesoro = new Treasure("La rebeca metálica", 2, TreasureKind.ARMOR);
+       tesoros.add(tesoro);
+       
+       tesoro = new Treasure("Lanzallamas", 4, TreasureKind.BOTHHANDS);
+       tesoros.add(tesoro);
+       
+       tesoro = new Treasure("Necrocomicón", 1, TreasureKind.ONEHAND);
+       tesoros.add(tesoro);
+       
+       tesoro = new Treasure("Necronomicón", 5, TreasureKind.BOTHHANDS);
+       tesoros.add(tesoro);
+       
+       tesoro = new Treasure("Linterna a 2 manos", 3, TreasureKind.BOTHHANDS);
+       tesoros.add(tesoro);
+       
+       tesoro = new Treasure("Necrognomicón", 2, TreasureKind.ONEHAND);
+       tesoros.add(tesoro);
+       
+       tesoro = new Treasure("Necrotelecom", 2, TreasureKind.HELMET);
+       tesoros.add(tesoro);
+       
+       tesoro = new Treasure("Mazo de los antiguos", 3, TreasureKind.ONEHAND);
+       tesoros.add(tesoro);
+       
+       tesoro = new Treasure("Necroplayboycón", 3, TreasureKind.ONEHAND);
+       tesoros.add(tesoro);
+       
+       tesoro = new Treasure("Porra prenatural", 2, TreasureKind.ONEHAND);
+       tesoros.add(tesoro);
+       
+       tesoro = new Treasure("Shogulador", 1, TreasureKind.BOTHHANDS);
+       tesoros.add(tesoro);
+       
+       tesoro = new Treasure("Varita de atizamiento", 3, TreasureKind.ONEHAND);
+       tesoros.add(tesoro);
+       
+       tesoro = new Treasure("Tentáculo de pega", 2, TreasureKind.HELMET);
+       tesoros.add(tesoro);
+       
+       tesoro = new Treasure("Zapato deja-amigos", 1, TreasureKind.SHOES);
+       tesoros.add(tesoro);
     }
     
 
@@ -285,6 +380,8 @@ public class Napakalaki {
             }
         }
     }
+    
+    
     
     
     
