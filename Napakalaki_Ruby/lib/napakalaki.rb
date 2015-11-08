@@ -10,6 +10,70 @@ require_relative 'prize'
 require_relative 'bad_consequence'
 require_relative 'treasure_kind'
 require_relative 'monster'
+require 'singleton'
+
+
+
+
+class Napakalaki 
+  
+  include Singleton
+  
+  def initplayers( names )
+    
+  end
+  
+  def nextplayer()
+    
+  end
+  
+  def nextturnallowed()
+    
+  end
+  
+  def setenemies()
+    
+  end
+  
+  def getinstance()
+    
+  end
+  
+  def developcombat()
+    
+  end
+  
+  def discardvisibletreasures(treasures)
+    
+  end
+  
+  def discardhiddentreasures(treasures)
+    
+  end
+  
+  def maketreasuresvisible(treasures)
+    
+  end
+  
+  def initgame(players)
+    
+  end
+  
+  def getcurrentplayer()
+    
+  end
+  
+  def nextturn()
+    
+  end
+  
+  def endofgame(result)
+    
+  end
+  
+  private :initplayers,:nextplayer,:nextturnallowed,:setenemies
+  
+end
 
 monsters = Array.new
 
