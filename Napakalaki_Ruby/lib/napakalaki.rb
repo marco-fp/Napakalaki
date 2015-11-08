@@ -121,7 +121,7 @@ bad_consequence = BadConsequence.newLevelNumberOfTreasures('Toses los pulmones y
 monsters << Monster.new('La que redacta en las tinieblas.',2,prize,bad_consequence)
 
 prize = Prize.new(2,1)
-bad_consequence = BadConsequence.newDeath('Estos monstruos resultan bastante superficiales y te aburren mortalmente. Estás muerto.')
+bad_consequence = BadConsequence.newDeath('Estos monstruos resultan bastante superficiales y te aburren mortalmente. Estás muerto.',true)
 monsters << Monster.new('Los hondos',8, prize, bad_consequence)
 
 prize = Prize.new(2,1)
@@ -137,11 +137,11 @@ bad_consequence = BadConsequence.newLevelNumberOfTreasures('Da mucho asquito. Pi
 monsters << Monster.new('Pollipólipo volante',3,prize,bad_consequence)
 
 prize = Prize.new(3,1)
-bad_consequence = BadConsequence.newDeath('No lo hace mucha gracia que pronuncien mal su nombre. Estás muerto.')
+bad_consequence = BadConsequence.newDeath('No lo hace mucha gracia que pronuncien mal su nombre. Estás muerto.',true)
 monsters << Monster.new('Yskhtihyssg-Goth',12,prize,bad_consequence)
 
 prize = Prize.new(4,1)
-bad_consequence = BadConsequence.newDeath('La familia te atrapa. Estás muerto.')
+bad_consequence = BadConsequence.newDeath('La familia te atrapa. Estás muerto.',true)
 monsters << Monster.new('Familia Feliz',1,prize,bad_consequence)
 
 prize = Prize.new(2,1)

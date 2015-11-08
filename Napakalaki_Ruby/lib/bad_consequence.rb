@@ -20,6 +20,22 @@ class BadConsequence
     @death = death
   end
   
+  def isEmpty()
+    
+  end
+  
+  def substractvisibletreasure(t)
+    
+  end
+  
+  def substracthiddentreasure(t)
+    
+  end
+  
+  def adjusttofittreasurelists(v,h)
+    
+  end
+  
   private_class_method :new
   attr_reader :text, :levels, :nVisibleTreasures, :nHiddenTreasures, :death, :specificVisibleTreasures, :specificHiddenTreasures
   
@@ -31,8 +47,8 @@ class BadConsequence
     new(aText, someLevels, 0,0,someSpecificVisibleTreasures,someSpecificHiddenTreasures,false)
   end
   
-  def self.newDeath(aText)
-    new(aText,0,0,0,nil,nil,true)
+  def self.newDeath(aText,death)
+    new(aText,0,0,0,nil,nil,death)
   end
   
   def to_s
