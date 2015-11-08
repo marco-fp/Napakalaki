@@ -1,5 +1,7 @@
 package napakalaki;
 
+import java.util.Random;
+
 public class Dice {
     
     private static final Dice instance = new Dice();
@@ -11,6 +13,7 @@ public class Dice {
     }
     
     public int nextNumber(){
-        return 0;
+        Random rand = new Random();
+        return rand.nextInt(6) + 1;
     }
 }

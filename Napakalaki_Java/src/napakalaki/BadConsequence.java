@@ -20,8 +20,13 @@ public class BadConsequence {
     
     static final int MAXTREASURES = 10;
     
+    // True cuando el bc que tiene que cumplir el jugador está vacío: conjunto de atrib. no hace perder tesoros.
     public boolean isEmpty(){
-        return false;
+        if(nVisibleTreasures == 0 && nHiddenTreasures == 0 && (specificHiddenTreasures == null || specificHiddenTreasures.isEmpty()) 
+                && (specificVisibleTreasures == null || specificVisibleTreasures.isEmpty() ) )
+            return true;
+        else
+            return false;
     }
     
     
