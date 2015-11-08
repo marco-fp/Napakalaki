@@ -19,6 +19,10 @@ class Napakalaki
   
   include Singleton
   
+  def initialize
+    
+  end
+  
   def initplayers( names )
     
   end
@@ -71,6 +75,7 @@ class Napakalaki
     
   end
   
+  private_class_method :new
   private :initplayers,:nextplayer,:nextturnallowed,:setenemies
   
 end
