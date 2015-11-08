@@ -15,7 +15,15 @@ class Monster
     @bc = bc
   end
   
-  attr_reader :name, :combatLevel, :prize, :bc
+  attr_reader :name, :combatLevel, :bc
+
+  def getlevelsgained()
+    @prize.level
+  end
+  
+  def gettreasuresgained()
+    @prize.treasures
+  end
   
   def to_s
     "--- Monstruo --- \n 
