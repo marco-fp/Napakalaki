@@ -84,7 +84,6 @@ end
 puts "It's working. (Kind of)"
 
 =begin
-
 def nivel_superior_10(monsters)
   for monster in monsters
     if (monster.combatLevel > 10)
