@@ -141,11 +141,29 @@ class CardDealer
   
   def shuffleTreasures()
     
+    @unusedTreasures.each_with_index { |tesoro,indice| 
+      
+      pos_nueva = rand(@unusedTreasures.size)
+      aux = @unusedTreasures[pos_nueva]
+      @unusedTreasures[indice] = aux
+      @unusedTreasures[pos_nueva] = tesoro
+      
+    }
+      
   end
   
   def shuffleMonsters()
     
+    @unusedMonsters.each_with_index { |monstruo,indice| 
+      
+      pos_nueva = rand(@unusedMonsters.size)
+      aux = @unusedMonsters[pos_nueva]
+      @unusedMonsters[indice] = aux
+      @unusedMonsters[pos_nueva] = monstruo
+      
+    }
   end
+  
   # ¿Borrar?
   def getinstance()
     
@@ -159,15 +177,21 @@ class CardDealer
     
   end
   
-  def givetreasureback(t)
+  def giveTreasureBack(t)
+    
+    @usedTreasures << t
+    @unusedTreasures.delete(t)
     
   end
   
-  def givemonsterback(m)
+  def giveMonsterBack(m)
+    
+    @usedMonsters << m
+    @unusedMonsters.delete(m)
     
   end
   
-  def initcards()
+  def initCards()
     
   end
   
