@@ -20,19 +20,23 @@ class BadConsequence
     @death = death
   end
   
-  def isempty()
+  def isEmpty()
+    if(@nVisibleTreasures == 0 && @nHiddenTreasures == 0 && (@specificHiddenTreasures.nil? || @specificHiddenTreasures.empty?) &&
+           (@specificVisibleTreasures.nil? || @specificVisibleTreasures.empty? ) )
+            return true
+    end
+    return false
+  end
+  
+  def substractVisibleTreasure(t)
     
   end
   
-  def substractvisibletreasure(t)
+  def substractHiddenTreasure(t)
     
   end
   
-  def substracthiddentreasure(t)
-    
-  end
-  
-  def adjusttofittreasurelists(v,h)
+  def adjustToFitTreasureLists(v,h)
     
   end
   
