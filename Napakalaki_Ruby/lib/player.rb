@@ -8,39 +8,54 @@ class Player
     @dead = true
     @canISteal = true
     @enemy = nil
-    @visibletreasures = Array.new
-    @hiddentreasures = Array.new
-    @pendingbadconsequence = nil
+    @visibleTreasures = Array.new
+    @hiddenTreasures = Array.new
+    @pendingBadConsequence = nil
   end
 
-  attr_reader :name,:level,:canISteal,:dead,:hiddentreasures,:visibletreasures
-  attr_writer :pendingbadconsequence
+  attr_reader :name,:level,:canISteal,:dead,:hiddenTreasures,:visibleTreasures
+  attr_writer :pendingBadConsequence, :enemy
   
-  def brintolife()
+  def getCombatLevel()
     
+    combat_level = @level
+    
+    for treasure in @visibleTreasures
+      combat_level+=treasure.bonus
+    end
+    
+    return combat_level
+  end
+  
+  def bringToLife()
+    @dead = false
   end
 
-  def incrementlevels(i)
+  def incrementLevels(i)
+    @level+=i
+  end
+  
+  def decrementLevels(i)
+    @level-=i
+  end
+  
+  def applyPrize(m)
     
   end
   
-  def decrementlevels(i)
+  def applyBadConsequence(m)
     
   end
   
-  def applyprize(m)
+  def canMakeTreasureVisible(t)
     
   end
   
-  def applybadconsequence(m)
+  def dieIfNoTreasures()
     
-  end
-  
-  def canmaketreasurevisible(t)
-    
-  end
-  
-  def dieifnotreasures()
+    if(@visibleTreasures.empty? && @hiddenTreasures.empty?)
+      @dead = true
+    end
     
   end
   
@@ -48,47 +63,61 @@ class Player
     
   end
   
-  def maketreasurevisible(t)
+  def makeTreasureVisible(t)
     
   end
   
-  def discardvisibletreasure(t)
+  def discardVisibleTreasure(t)
     
   end
   
-  def discardhiddentreasure(t)
+  def discardHiddenTreasure(t)
     
   end
   
-  def validstate()
+  def validState()
+    
+    if(@pendingBadConsequence.isEmpty && @hiddenTreasures.size<=4)
+      return true
+    end
+    return false
     
   end
   
-  def initreasures()
+  def howManyVisibleTreasures(tKind)
+    contador = 0
+    for tesoro in @visibleTreasures
+      if(tesoro.tkind == tKind)
+        contador = contador + 1
+      end
+    end
+    return contador
+  end
+  
+  def initTreasures()
     
   end
   
-  def stealtreasure()
+  def stealTreasure()
     
   end
   
-  def setenemy(enemy)
+  def giveMeATreasure()
     
   end
   
-  def givemeatreasure()
-    
+  def canYouGiveMeATreasure()
+    if(! @visibleTreasures.empty? || ! @hiddenTreasures.empty?)
+      return true
+    end
+    return false
   end
   
-  def canyougivemeatreasure()
-    
+  def haveStolen()
+    @canISteal = false
   end
   
-  def havestolen()
-    
-  end
-  
-  def discardalltreasures()
+  def discardAllTreasures()
     
   end
   
