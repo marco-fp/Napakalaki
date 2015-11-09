@@ -17,11 +17,11 @@ class Monster
   
   attr_reader :name, :combatLevel, :bc
 
-  def getlevelsgained()
+  def getLevelsGained()
     @prize.level
   end
   
-  def gettreasuresgained()
+  def getTreasuresGained()
     @prize.treasures
   end
   

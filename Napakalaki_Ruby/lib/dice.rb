@@ -10,8 +10,8 @@ class Dice
   
   private_class_method :new
   
-  def nextnumber()
-    
+  def nextNumber()
+    return rand(6) + 1
   end
   
 end
