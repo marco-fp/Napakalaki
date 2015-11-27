@@ -7,6 +7,7 @@
 package napakalaki;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Napakalaki {
     
@@ -31,7 +32,21 @@ public class Napakalaki {
     }
     
     private Player nextPlayer(){
-        return null;
+        int indice;
+        // Primera jugada
+        if(currentPlayer == null){
+            Random rand = new Random();
+            indice = rand.nextInt(players.size()-1);
+            currentPlayer = players.get(indice);
+        }
+        // No es la primera jugada
+        else{
+            indice = players.indexOf(currentPlayer);
+            if(indice==(players.size()-1))
+                indice = 0;
+            currentPlayer = players.get(indice);
+        }
+        return currentPlayer;
     }
     
     private boolean nextTurnAllowed(){
@@ -65,11 +80,11 @@ public class Napakalaki {
     }
     
     public Player getCurrentPlayer(){
-        return null;
+        return currentPlayer;
     }
     
     public Monster getCurrentMonster(){
-        return null;
+        return currentMonster;
     }
     
     public boolean nextTurn(){
