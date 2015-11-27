@@ -49,11 +49,26 @@ public class Napakalaki {
         return currentPlayer;
     }
     
-    private boolean nextTurnAllowed(){
-        return false;
+    private boolean nextTurnIsAllowed(){
+        if(currentPlayer == null)
+            return true;
+        else{
+            return currentPlayer.validState();
+        }
     }
     
-    private void setEnemies(){}
+    private void setEnemies(){
+        int indiceEnemigo = players.size()+1; // Siempre inicia fuera de rango
+        Random rand = new Random();
+        
+        for(Player player: players){
+            do{
+            indiceEnemigo = rand.nextInt(players.size()-1);
+            } while(indiceEnemigo == players.indexOf(player));
+            
+            player.setEnemy(players.get(indiceEnemigo));
+        }
+    }
     
     public static Napakalaki getInstance(){
         return instance;
@@ -92,7 +107,10 @@ public class Napakalaki {
     }
     
     public boolean endOfGame(CombatResult result){
-        return false;
+        if(result == CombatResult.WINGAME)
+            return true;
+        else
+            return false;
     }
     
     
