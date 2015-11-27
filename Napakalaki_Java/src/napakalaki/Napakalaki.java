@@ -25,7 +25,9 @@ public class Napakalaki {
     };
     
     private void initPlayers(ArrayList<String> names){
-        
+        for(String name : names){
+            players.add(new Player(name));
+        }
     }
     
     private Player nextPlayer(){
