@@ -40,7 +40,28 @@ class BadConsequence
     end
   end
   
-  def adjustToFitTreasureLists(v,h)
+  def adjustToFitTreasureLists(visibles, hidden)
+    if(@specificVisibleTreasures.empty? && @specificHiddenTreasures.empty?)
+      nVisible = [visibles.size,@nVisibleTreasures].min
+      nHidden = [hidden.size,@nHiddenTreasures].min
+      return BadConsequence.newLevelnumberOfTreasures(@text,0,nVisible,nHidden)
+    else
+      
+      listaAjustadaVisibles = Array.new
+      listaAjustadaHidden = Array.new
+      
+      visibleKind = visibles.collect{|t| t.getType}
+      hiddenKind = hidden.collect{|t| t.getType}
+      
+      TreasureKind.each do |tKind|
+        listaAjustadaVisibles = listaAjustadaVisibles + 
+          [tKind]*[visibleKind.select{|t| t == tKind}.size, @specificVisibleTreasures.select{|t| t == tKind}.size].min
+        
+        listaAjustadaHidden = listaAjustadaHidden + 
+          [tKind]*[hiddenKind.select{|t| t == tKind}.size, @specificHiddenTreasures.select{|t| t == tKind}.size].min
+      end
+      return BadConsequence.newSpecificTreasures(@text,0,listaAjustadaVisibles,listaAjustadaHidden)
+    end
     
   end
   
