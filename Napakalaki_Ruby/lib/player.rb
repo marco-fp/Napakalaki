@@ -48,7 +48,18 @@ class Player
   end
   
   def applyPrize(m)
-    
+    nLevels = m.getLevelGained()
+    incrementLevels(nLevels)
+    nTreasures = m.getTreasuresGained()
+    if(nTreasures > 0)
+      i=0
+      loop do
+        i+=1
+        t = CardDealer.instance.nextTreasure
+        @hiddenTreasures << t
+        break if i==nTreasures
+      end
+    end
   end
   
   def applyBadConsequence(m)

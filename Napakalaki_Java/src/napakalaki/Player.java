@@ -61,7 +61,17 @@ public class Player {
     }
     
     private void applyPrize(Monster m){
+        int nLevels = m.getLevelsGained();
+        incrementLevels(nLevels);
+        int nTreasures = m.getTreasuresGained();
         
+        if(nTreasures > 0){
+            CardDealer dealer = CardDealer.getInstance();
+            for (int i = 0; i < nTreasures; i++){
+                Treasure t = dealer.nextTreasure();
+                hiddenTreasures.add(t);
+            }
+        }
     }
     
     private void applyBadConsequence(Monster m){
