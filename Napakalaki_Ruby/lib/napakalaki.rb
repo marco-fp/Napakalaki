@@ -70,11 +70,17 @@ class Napakalaki
   end
   
   def discardVisibleTreasures(treasures)
-    
+    for treasure in treasures
+      @currentPlayer.discardVisibleTreasure(treasure)
+      @dealer.giveTreasureBack(treasure)
+    end
   end
   
   def discardHiddenTreasures(treasures)
-    
+    for treasure in treasures
+      @currentPlayer.discardVisibleTreasure(treasure)
+      @dealer.giveTreasureBack(treasure)
+    end
   end
   
   def makeTreasuresVisible(treasures)

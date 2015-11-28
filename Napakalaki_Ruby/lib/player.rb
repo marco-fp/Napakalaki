@@ -121,13 +121,25 @@ class Player
   def makeTreasureVisible(t)
     
   end
-  
+
   def discardVisibleTreasure(t)
-    
+    if(@visibleTreasures != nil)
+      @visibleTreasures.delete(t)
+      if(@pendingBadConsequence != nil && !@pendingBadConsequence.empty?)
+        @pendingBadConsequence.substractVisibleTreasure(t)
+      end
+      dieIfNoTreasures()
+    end
   end
   
   def discardHiddenTreasure(t)
-    
+    if(@hiddenTreasures != nil)
+      @hiddenTreasures.delete(t)
+      if(@pendingBadConsequence != nil && !@pendingBadCosnequence.empty?)
+        @pendingBadConsequence.substractHiddenTreasure(t)
+      end
+      dieIfNoTreasure()
+    end
   end
   
   def validState()
