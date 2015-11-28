@@ -216,6 +216,16 @@ public class Player {
     }
     
     public Treasure stealTreasure(){
+        boolean canI = canISteal();
+        if(canI){
+            boolean canYou = enemy.canYouGiveMeATreasure();
+            if(canYou){
+                Treasure tesoroRobado = enemy.giveMeATreasure();
+                hiddenTreasures.add(tesoroRobado);
+                haveStolen();
+                return tesoroRobado;
+            }
+        }
         return null;
     }
     

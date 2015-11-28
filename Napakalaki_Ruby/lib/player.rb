@@ -203,7 +203,17 @@ class Player
   end
   
   def stealTreasure()
-    
+    canI = canISteal()
+    if(canI)
+      canYou = @enemy.canYouGiveMeATreasure()
+      if(canYou)
+        tesoroRobado = @enemy.giveMeATreasure()
+        @hiddenTreasures << tesoroRobado
+        haveStolen()
+        return tesoroRobado
+      end
+    end
+    return nil
   end
   
   def giveMeATreasure()
