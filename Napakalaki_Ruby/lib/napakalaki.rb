@@ -18,61 +18,82 @@ class Napakalaki
   include Singleton
   
   def initialize
-    @currentplayer = nil
+    @currentPlayer = nil
     @players = Array.new
     @dealer = CardDealer.instance
-    @currentmonster = nil
+    @currentMonster = nil
   end
   
-  def initplayers( names )
+  def initPlayers( names )
+    for name in names
+        @players << Player.new(name)
+    end
+  end
+  
+  def nextPlayer()
+        # Primera jugada
+        if (@currentPlayer == nil)
+            indice = rand(@players.size-1)
+            @currentPlayer = @players[indice]
+        # No es la primera jugada
+        else
+            indice = @players.index(@currentPlayer)
+            if(indice == @players.size-1)
+                indice = 0
+            end
+            @currentPlayer = @players[indice]
+        end 
+        return @currentPlayer;
+  end
+  
+  def nextTurnAllowed()
     
   end
   
-  def nextplayer()
+  def setEnemies()
+    indiceEnemigo = @players.size+1
+    for player in @players
+      loop do
+        indiceEnemigo = rand(@players.size-1)
+        break if(indiceEnemigo != @players.index(player))
+      end 
+      player.enemy = @players[indiceEnemigo]
+    end
+  end
+  
+  def getInstance()
     
   end
   
-  def nextturnallowed()
+  def developCombat()
     
   end
   
-  def setenemies()
+  def discardVisibleTreasures(treasures)
     
   end
   
-  def getinstance()
+  def discardHiddenTreasures(treasures)
     
   end
   
-  def developcombat()
+  def makeTreasuresVisible(treasures)
     
   end
   
-  def discardvisibletreasures(treasures)
+  def initGame(players)
     
   end
   
-  def discardhiddentreasures(treasures)
+  def getCurrentPlayer()
+    @currentPlayer
+  end
+  
+  def nextTurn()
     
   end
   
-  def maketreasuresvisible(treasures)
-    
-  end
-  
-  def initgame(players)
-    
-  end
-  
-  def getcurrentplayer()
-    
-  end
-  
-  def nextturn()
-    
-  end
-  
-  def endofgame(result)
+  def endOfGame(result)
     
   end
   

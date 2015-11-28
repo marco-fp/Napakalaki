@@ -90,8 +90,11 @@ public class Napakalaki {
         
     }
     
-    public void initGame(ArrayList<String> players){
-        
+    public void initGame(ArrayList<String> names){
+        initPlayers(names);
+        setEnemies();
+        dealer.initCards();
+        nextTurn();
     }
     
     public Player getCurrentPlayer(){
