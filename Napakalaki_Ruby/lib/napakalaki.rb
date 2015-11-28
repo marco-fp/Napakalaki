@@ -65,10 +65,6 @@ class Napakalaki
     end
   end
   
-  def getInstance()
-    
-  end
-  
   def developCombat()
     
   end
@@ -93,12 +89,20 @@ class Napakalaki
     @currentPlayer
   end
   
+  def getCurrentMonster()
+    @currentMonster
+  end
+  
   def nextTurn()
     
   end
   
   def endOfGame(result)
-    
+    if(result == CombatResult::WINGAME)
+      return true
+    else
+      return false
+    end
   end
   
   private_class_method :new
