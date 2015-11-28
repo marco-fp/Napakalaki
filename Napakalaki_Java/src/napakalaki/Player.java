@@ -155,11 +155,19 @@ public class Player {
             if(pendingBadConsequence != null && !pendingBadConsequence.isEmpty()){
                 pendingBadConsequence.substractVisibleTreasure(t);
             }
-        }
+            dieIfNoTreasures();
+        }   
     }
     
     public void discardHiddenTreasure(Treasure t){
-        
+        if(hiddenTreasures != null){
+            hiddenTreasures.remove(t);
+            
+            if(pendingBadConsequence != null && !pendingBadConsequence.isEmpty()){
+                pendingBadConsequence.substractHiddenTreasure(t);
+            }
+            dieIfNoTreasures();
+        }
     }
     
     public boolean validState(){
