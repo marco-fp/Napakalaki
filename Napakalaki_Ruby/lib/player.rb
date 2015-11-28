@@ -56,7 +56,54 @@ class Player
   end
   
   def canMakeTreasureVisible(t)
+    tipo = t.tkind
+    # Si es ARMOR
+    if(tipo == TreasureKind::ARMOR)
+      for treasure in @visibleTreasures
+        if(treasure.tkind == TreasureKind::ARMOR)
+          return false
+        end
+      end
+        return true
+      
+    # Si es ONEHAND
+    elsif(tipo == TreasureKind::ONEHAND)
+      numUnaMano = 0
+      for treasure in @visibleTreasures
+        if(treasure.tkind == TreasureKind::ONEHAND)
+          numUnaMano+=1;
+        end
+      end
+      return (numUnaMano <= 1)
     
+    # Si es BOTHHANDS
+    elsif(tipo == TreasureKind::BOTHHANDS)
+      numUnaMano = 0
+      for treasure in @visibleTreasures
+        if(treasure.tkind == TreasureKind::ONEHAND || treasure.tkind == TreasureKind::BOTHHANDS)
+          return false
+        end
+      end
+      return true
+     
+    # Si es HELMET
+    elsif(tipo == TreasureKind::HELMET)
+      for treasure in @visibleTreasures
+        if(treasure.tkind == TreasureKind::SHOES)
+          return false
+        end
+      end
+      return true
+      
+    #Si es SHOE
+    else
+      for treasure in @visibleTreasures
+        if(treasure.tkind == TreasureKind::SHOES)
+          return false
+        end
+      end
+      return true
+    end
   end
   
   def dieIfNoTreasures()
