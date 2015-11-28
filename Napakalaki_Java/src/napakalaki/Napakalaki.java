@@ -75,7 +75,9 @@ public class Napakalaki {
     }
 
     public CombatResult developCombat(){
-        return null;
+        CombatResult result = currentPlayer.combat(currentMonster);
+        dealer.giveMonsterBack(currentMonster);
+        return result;
     }
     
     public void discardVisibleTreasures(ArrayList<Treasure> treasures){
