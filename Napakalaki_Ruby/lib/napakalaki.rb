@@ -46,8 +46,12 @@ class Napakalaki
         return @currentPlayer;
   end
   
-  def nextTurnAllowed()
-    
+  def nextTurnIsAllowed()
+    if(@currentPlayer == nil)
+      return true
+    else
+      return @currentPlayer.validState
+    end
   end
   
   def setEnemies()
