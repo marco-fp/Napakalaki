@@ -7,6 +7,7 @@
 package napakalaki;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Player {
  
@@ -179,7 +180,8 @@ public class Player {
     }
     
     private Treasure giveMeATreasure(){
-        return null;
+        Random rand = new Random(); 
+        return hiddenTreasures.get(rand.nextInt(hiddenTreasures.size()-1));
     }
     
     public boolean canISteal(){
