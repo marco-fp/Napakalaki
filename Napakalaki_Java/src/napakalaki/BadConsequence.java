@@ -6,6 +6,7 @@
 
 package napakalaki;
 
+import static java.lang.Integer.min;
 import java.util.ArrayList;
 
 public class BadConsequence {
@@ -120,8 +121,56 @@ public class BadConsequence {
             specificHiddenTreasures.remove(t.getType());
     }
     
-    public BadConsequence adjustToFitTreasureLists(ArrayList<Treasure> visible, ArrayList<Treasure> hidden){
-        return null;
+    public BadConsequence adjustToFitTreasureLists(ArrayList<Treasure> visibles, ArrayList<Treasure> hidden){
+        BadConsequence bcAjustado;
+        
+        if(specificVisibleTreasures.isEmpty() && specificHiddenTreasures.isEmpty()){
+            int nVisible = (visibles.size() > nVisibleTreasures ? nVisibleTreasures : visibles.size());
+            int nHidden = (hidden.size() > nHiddenTreasures ? nHiddenTreasures : hidden.size());
+            bcAjustado = new BadConsequence(text, 0, nVisible,nHidden);
+        }
+        else{
+            
+            ArrayList<TreasureKind> listaAjustadaVisibles = new ArrayList();
+            ArrayList<TreasureKind> listaAjustadaHidden = new ArrayList();
+            
+            for(TreasureKind tKind : TreasureKind.values()){
+                int jugador = 0, badC = 0;
+                
+                for(TreasureKind t : specificVisibleTreasures){
+                    if(t == tKind)
+                        badC++;
+                }
+                
+                for(Treasure t : visibles){
+                    if(t.getType() == tKind)
+                        jugador++;
+                }
+                
+                for(int i = 0; i< min(jugador,badC); i++)
+                    listaAjustadaVisibles.add(tKind);
+            
+                jugador = 0;
+                badC = 0;
+            
+                for(TreasureKind t : specificHiddenTreasures){
+                    if(t == tKind)
+                        badC++;
+                }
+                
+                for(Treasure t : hidden){
+                    if(t.getType() == tKind)
+                        jugador++;
+                }
+                
+                for(int i = 0; i< min(jugador,badC); i++)
+                    listaAjustadaHidden.add(tKind);
+            }
+            
+            bcAjustado = new BadConsequence(text, 0, listaAjustadaVisibles, listaAjustadaHidden);
+            
+        }
+        return bcAjustado;
     }
     
 }
