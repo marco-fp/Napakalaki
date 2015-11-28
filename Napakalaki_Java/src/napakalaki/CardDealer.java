@@ -305,11 +305,23 @@ public class CardDealer {
     }
     
     public Treasure nextTreasure(){
-        return null;
+        if(unusedTreasures.isEmpty()){
+            ArrayList<Treasure> punteroAux = unusedTreasures;
+            unusedTreasures = usedTreasures;
+            usedTreasures = punteroAux;
+            shuffleTreasures();
+        }
+        return unusedTreasures.remove(0);
     }
     
     public Monster nextMonster(){
-        return null;
+        if(unusedMonsters.isEmpty()){
+            ArrayList<Monster> punteroAux = unusedMonsters;
+            unusedMonsters = usedMonsters;
+            usedMonsters = punteroAux;
+            shuffleMonsters();
+        }
+        return unusedMonsters.remove(0);
     }
     
     // ¿Lo borro de unused?
