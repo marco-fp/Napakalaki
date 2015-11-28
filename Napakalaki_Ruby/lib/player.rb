@@ -158,7 +158,7 @@ class Player
   end
   
   def giveMeATreasure()
-    
+    return @hiddenTreasures[rand(@hiddenTreasures.size-1)]
   end
   
   def canYouGiveMeATreasure()
