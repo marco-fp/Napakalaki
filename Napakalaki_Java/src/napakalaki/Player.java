@@ -255,6 +255,15 @@ public class Player {
     
     public void discardAllTreasures(){
         
+        ArrayList<Treasure> tVisibles = new ArrayList(visibleTreasures);
+        ArrayList<Treasure> tHidden = new ArrayList(hiddenTreasures);
+        
+        for(Treasure t : tVisibles){
+            discardVisibleTreasure(t);
+        }
+        for(Treasure t : tHidden){
+            discardHiddenTreasure(t);
+        }
     }
     
 }

@@ -232,6 +232,16 @@ class Player
   end
   
   def discardAllTreasures()
+    tVisibles = @visibleTreasures.clone
+    tHidden = @hiddenTreasures.clone
+    
+    for vt in tVisibles
+      discardVisibleTreasure(vt)
+    end
+    
+    for ht in tHidden
+      discardHiddenTreasure(ht)
+    end
     
   end
   
