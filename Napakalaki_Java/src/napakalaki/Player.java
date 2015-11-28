@@ -141,7 +141,20 @@ public class Player {
     }
     
     public CombatResult combat(Monster m){
-        return null;
+        int myLevel = getCombatLevel();
+        int monsterLevel = m.getCombatLevel();
+        
+        if(myLevel > monsterLevel){
+            applyPrize(m);
+            if(myLevel >= MAXLEVEL)
+                return CombatResult.WINGAME;
+            else
+                return CombatResult.WIN;
+        }
+        else{
+            applyBadConsequence(m);
+            return CombatResult.LOSE;
+        }
     }
     
     public void makeTreasureVisible(Treasure t){
