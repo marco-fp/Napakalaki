@@ -81,8 +81,11 @@ class Napakalaki
     
   end
   
-  def initGame(players)
-    
+  def initGame(names)
+    initPlayers(names)
+    setEnemies()
+    dealer.initCards()
+    nextTurn()
   end
   
   def getCurrentPlayer()
@@ -94,7 +97,15 @@ class Napakalaki
   end
   
   def nextTurn()
-    
+    stateOK = nextTurnAllowed()
+    if(stateOK)
+      @currentMonster = @dealer.nextMonster()
+      dead = @currentPlayer.dead
+      if(dead)
+        @currentPlayer.initTreasures()
+      end
+    end
+    return stateOK
   end
   
   def endOfGame(result)
