@@ -29,11 +29,15 @@ class BadConsequence
   end
   
   def substractVisibleTreasure(t)
-    
+    unless( @specificVisibleTreasures.empty?)
+      @specificVisibleTreasures.delete(t.tkind)
+    end
   end
   
   def substractHiddenTreasure(t)
-    
+    unless( @specificHiddenTreasures.empty?)
+      @specificHiddenTreasures.delete(t.tkind)
+    end
   end
   
   def adjustToFitTreasureLists(v,h)
