@@ -199,6 +199,24 @@ class Player
   end
   
   def initTreasures()
+    dealer = CardDealer.instance
+    dice = Dice.instance
+    
+    brintToLife()
+    
+    t = dealer.nextTreasure
+    @hiddenTreasures << t
+    number = dice.nextNumber
+    
+    if(number > 1)
+      t = dealer.nextTreasure
+      @hiddenTreasures << t
+    end
+    
+    if(number > 6)
+      t = dealer.nextTreasure
+      @hiddenTreasures << t
+    end
     
   end
   
