@@ -75,7 +75,10 @@ public class Player {
     }
     
     private void applyBadConsequence(Monster m){
-        
+        BadConsequence bc = m.getBadConsequence();
+        decrementLevels(bc.getLevels());
+        BadConsequence pendingBad = bc.adjustToFitTreasureLists(visibleTreasures,hiddenTreasures);
+        setPendingBadConsequence(pendingBad);
     }
     
     private boolean canMakeTreasureVisible(Treasure t){
