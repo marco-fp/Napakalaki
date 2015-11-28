@@ -68,7 +68,49 @@ public class Player {
     }
     
     private boolean canMakeTreasureVisible(Treasure t){
-        return false;
+        TreasureKind tipo = t.getType();
+        // ARMOR
+        if(tipo == TreasureKind.ARMOR){
+            for(Treasure treasure : visibleTreasures){
+                if(treasure.getType() == TreasureKind.ARMOR)
+                    return false;
+            }
+            return true;
+        }
+        // ONEHAND
+        else if(tipo == TreasureKind.ONEHAND){
+            int numUnaMano = 0;
+            for(Treasure treasure : visibleTreasures){
+                if(treasure.getType() == TreasureKind.ONEHAND)
+                    numUnaMano++;
+            }
+            return numUnaMano <= 1;
+        }
+        // BOTHHANDS 
+        else if(tipo == TreasureKind.BOTHHANDS){
+            int numUnaMano = 0;
+            for(Treasure treasure : visibleTreasures){
+                if(treasure.getType() == TreasureKind.ONEHAND || treasure.getType() == TreasureKind.BOTHHANDS)
+                    return false;
+            }
+            return true;
+        }
+        // HELMET
+        else if(tipo == TreasureKind.HELMET){
+            for(Treasure treasure : visibleTreasures){
+                if(treasure.getType() == TreasureKind.HELMET)
+                    return false;
+            }
+            return true;
+        }
+        // SHOES
+        else{
+            for(Treasure treasure : visibleTreasures){
+                if(treasure.getType() == TreasureKind.SHOES)
+                    return false;
+            }
+            return true;
+        }
     }
     
     private int howManyVisibleTreasures(TreasureKind tKind){
