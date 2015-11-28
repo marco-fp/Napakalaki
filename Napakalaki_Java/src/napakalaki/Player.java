@@ -158,7 +158,11 @@ public class Player {
     }
     
     public void makeTreasureVisible(Treasure t){
-        
+        boolean canI = canMakeTreasureVisible(t);
+        if(canI){
+            visibleTreasures.add(t);
+            hiddenTreasures.remove(t);
+        }
     }
     
     public void discardVisibleTreasure(Treasure t){

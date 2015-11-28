@@ -86,7 +86,9 @@ class Napakalaki
   end
   
   def makeTreasuresVisible(treasures)
-    
+    for treasure in treasures
+      @currentPlayer.makeTreasureVisible(treasure)
+    end
   end
   
   def initGame(names)

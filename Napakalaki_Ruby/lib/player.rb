@@ -132,7 +132,11 @@ class Player
   end
   
   def makeTreasureVisible(t)
-    
+    canI = canMakeTreasureVisible(t)
+    if(canI)
+      @visibleTreasures << t
+      @hiddenTreasures.delete(t)
+    end
   end
 
   def discardVisibleTreasure(t)
