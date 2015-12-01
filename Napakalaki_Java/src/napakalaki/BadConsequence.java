@@ -23,8 +23,8 @@ public class BadConsequence {
     
     // True cuando el bc que tiene que cumplir el jugador está vacío: conjunto de atrib. no hace perder tesoros.
     public boolean isEmpty(){
-        if(nVisibleTreasures == 0 && nHiddenTreasures == 0 && (specificHiddenTreasures == null || specificHiddenTreasures.isEmpty()) 
-                && (specificVisibleTreasures == null || specificVisibleTreasures.isEmpty() ) )
+        if(nVisibleTreasures == 0 && nHiddenTreasures == 0 && (specificHiddenTreasures == null) 
+                && (specificVisibleTreasures == null))
             return true;
         else
             return false;
@@ -112,12 +112,12 @@ public class BadConsequence {
     }
     
     public void substractVisibleTreasure(Treasure t){
-        if(!specificVisibleTreasures.isEmpty())
+        if(specificVisibleTreasures != null)
             specificVisibleTreasures.remove(t.getType());
     }
     
     public void substractHiddenTreasure(Treasure t){
-        if(!specificHiddenTreasures.isEmpty())
+        if(specificHiddenTreasures != null)
             specificHiddenTreasures.remove(t.getType());
     }
     

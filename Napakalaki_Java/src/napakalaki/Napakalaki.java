@@ -40,7 +40,7 @@ public class Napakalaki {
         // Primera jugada
         if(currentPlayer == null){
             Random rand = new Random();
-            indice = rand.nextInt(players.size()-1);
+            indice = rand.nextInt(players.size());
             currentPlayer = players.get(indice);
         }
         // No es la primera jugada
@@ -48,6 +48,8 @@ public class Napakalaki {
             indice = players.indexOf(currentPlayer);
             if(indice==(players.size()-1))
                 indice = 0;
+            else
+                indice++;
             currentPlayer = players.get(indice);
         }
         return currentPlayer;
@@ -65,7 +67,7 @@ public class Napakalaki {
         int indiceEnemigo = players.size()+1; // Siempre inicia fuera de rango
         Random rand = new Random();
         for(Player player: players){
-            indiceEnemigo = rand.nextInt(players.size()-1);
+            indiceEnemigo = rand.nextInt(players.size());
             while(indiceEnemigo == players.indexOf(player)){
                 indiceEnemigo = rand.nextInt(players.size());
             }

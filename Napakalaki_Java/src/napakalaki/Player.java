@@ -27,6 +27,7 @@ public class Player {
     
     public Player(String name){
         this.name = name;
+        this.level = 1;
         this.visibleTreasures = new ArrayList();
         this.hiddenTreasures = new ArrayList();
     }
@@ -53,7 +54,10 @@ public class Player {
     }
     
     private void decrementLevels(int i){
-        this.level -= i;
+        if(i>=level)
+            level = 1;
+        else
+            level -= i;
     }
     
     private void setPendingBadConsequence(BadConsequence b){
@@ -75,9 +79,15 @@ public class Player {
     }
     
     private void applyBadConsequence(Monster m){
+        System.out.println("Aplicando mal rollo.\n");
         BadConsequence bc = m.getBadConsequence();
+        System.out.println(bc.toString()+"\n");
+        System.out.println("Nivel del jugador antes de decrementar:"+this.level+"\n");
         decrementLevels(bc.getLevels());
+        System.out.println("Nivel del jugador despues de decrementar:"+this.level+"\n");
+        
         BadConsequence pendingBad = bc.adjustToFitTreasureLists(visibleTreasures,hiddenTreasures);
+        System.out.println("Bad consequence ajustada al jugador:\n"+pendingBad.toString()+"\n");
         setPendingBadConsequence(pendingBad);
     }
     
@@ -201,7 +211,7 @@ public class Player {
     }
     
     public boolean validState(){
-        if(pendingBadConsequence.isEmpty() && hiddenTreasures.size() <= 4)
+        if(pendingBadConsequence.isEmpty() || hiddenTreasures.size() <= 4)
             return true;
         else
             return false;
@@ -280,6 +290,11 @@ public class Player {
         for(Treasure t : tHidden){
             discardHiddenTreasure(t);
         }
+    }
+    
+    @Override
+    public String toString(){
+        return name+"("+Integer.toString(getCombatLevel())+") \n";
     }
     
 }

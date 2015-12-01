@@ -30,4 +30,9 @@ public class Treasure {
         return type;
     }
     
+    @Override
+    public String toString(){
+        return name+"("+bonus+"-"+type+")";
+    }
+    
 }
