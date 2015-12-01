@@ -6,6 +6,8 @@
   Licencia GPLv3 a partir del 15/02/16, hasta entonces todos los derechos reservados.
 =end 
 
+require_relative 'dice'
+
 class Player
   
   @@MAXLEVEL = 10
@@ -175,7 +177,7 @@ class Player
   
   def validState()
     
-    if(@pendingBadConsequence.isEmpty && @hiddenTreasures.size<=4)
+    if(@pendingBadConsequence.isEmpty || @hiddenTreasures.size<=4)
       return true
     end
     return false

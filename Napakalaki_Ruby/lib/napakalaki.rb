@@ -36,13 +36,15 @@ class Napakalaki
   def nextPlayer()
         # Primera jugada
         if (@currentPlayer == nil)
-            indice = rand(@players.size-1)
+            indice = rand(@players.size)
             @currentPlayer = @players[indice]
         # No es la primera jugada
         else
             indice = @players.index(@currentPlayer)
             if(indice == @players.size-1)
-                indice = 0
+              indice = 0
+            else
+              indice += 1
             end
             @currentPlayer = @players[indice]
         end 
@@ -61,7 +63,7 @@ class Napakalaki
     indiceEnemigo = @players.size+1
     for player in @players
       loop do
-        indiceEnemigo = rand(@players.size-1)
+        indiceEnemigo = rand(@players.size)
         break if(indiceEnemigo != @players.index(player))
       end 
       player.enemy = @players[indiceEnemigo]
@@ -95,9 +97,11 @@ class Napakalaki
   end
   
   def initGame(names)
+    puts "inicio init game"
     initPlayers(names)
+    puts "ha iniciado players"
     setEnemies()
-    dealer.initCards()
+    CardDealer.instance.initCards()
     nextTurn()
   end
   
@@ -113,6 +117,7 @@ class Napakalaki
     stateOK = nextTurnIsAllowed()
     if(stateOK)
       @currentMonster = @dealer.nextMonster()
+      @currentPlayer = nextPlayer()
       dead = @currentPlayer.dead
       if(dead)
         @currentPlayer.initTreasures()
