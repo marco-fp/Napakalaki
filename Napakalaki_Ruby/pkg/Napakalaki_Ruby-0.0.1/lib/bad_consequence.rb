@@ -8,6 +8,8 @@
 
 class BadConsequence
   
+  @@MAXTREASURES = 10
+  
   def initialize(aText, someLevels, someVisibleTreasures, someHiddenTreasures, someSpecificVisibleTreasures, someSpecificHiddenTreasures, death)
     @text = aText
     @levels = someLevels
@@ -16,6 +18,51 @@ class BadConsequence
     @specificVisibleTreasures = someSpecificVisibleTreasures
     @specificHiddenTreasures = someSpecificHiddenTreasures
     @death = death
+  end
+  
+  def isEmpty()
+    if(@nVisibleTreasures == 0 && @nHiddenTreasures == 0 && (@specificHiddenTreasures.nil? || @specificHiddenTreasures.empty?) &&
+           (@specificVisibleTreasures.nil? || @specificVisibleTreasures.empty? ) )
+            return true
+    end
+    return false
+  end
+  
+  def substractVisibleTreasure(t)
+    unless( @specificVisibleTreasures.empty?)
+      @specificVisibleTreasures.delete(t.tkind)
+    end
+  end
+  
+  def substractHiddenTreasure(t)
+    unless( @specificHiddenTreasures.empty?)
+      @specificHiddenTreasures.delete(t.tkind)
+    end
+  end
+  
+  def adjustToFitTreasureLists(visibles, hidden)
+    if(@specificVisibleTreasures.empty? && @specificHiddenTreasures.empty?)
+      nVisible = [visibles.size,@nVisibleTreasures].min
+      nHidden = [hidden.size,@nHiddenTreasures].min
+      return BadConsequence.newLevelnumberOfTreasures(@text,0,nVisible,nHidden)
+    else
+      
+      listaAjustadaVisibles = Array.new
+      listaAjustadaHidden = Array.new
+      
+      visibleKind = visibles.collect{|t| t.getType}
+      hiddenKind = hidden.collect{|t| t.getType}
+      
+      TreasureKind.each do |tKind|
+        listaAjustadaVisibles = listaAjustadaVisibles + 
+          [tKind]*[visibleKind.select{|t| t == tKind}.size, @specificVisibleTreasures.select{|t| t == tKind}.size].min
+        
+        listaAjustadaHidden = listaAjustadaHidden + 
+          [tKind]*[hiddenKind.select{|t| t == tKind}.size, @specificHiddenTreasures.select{|t| t == tKind}.size].min
+      end
+      return BadConsequence.newSpecificTreasures(@text,0,listaAjustadaVisibles,listaAjustadaHidden)
+    end
+    
   end
   
   private_class_method :new
@@ -29,8 +76,8 @@ class BadConsequence
     new(aText, someLevels, 0,0,someSpecificVisibleTreasures,someSpecificHiddenTreasures,false)
   end
   
-  def self.newDeath(aText)
-    new(aText,0,0,0,nil,nil,true)
+  def self.newDeath(aText,death)
+    new(aText,0,0,0,nil,nil,death)
   end
   
   def to_s
