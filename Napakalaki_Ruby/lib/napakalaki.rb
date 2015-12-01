@@ -107,7 +107,7 @@ class Napakalaki
   end
   
   def nextTurn()
-    stateOK = nextTurnAllowed()
+    stateOK = nextTurnIsAllowed()
     if(stateOK)
       @currentMonster = @dealer.nextMonster()
       dead = @currentPlayer.dead
@@ -127,7 +127,7 @@ class Napakalaki
   end
   
   private_class_method :new
-  private :initplayers,:nextplayer,:nextturnallowed,:setenemies
+  private :initPlayers,:nextPlayer,:nextTurnIsAllowed,:setEnemies
   
 end
 
