@@ -315,6 +315,7 @@ public class CardDealer {
     }
     
     public Monster nextMonster(){
+        System.out.println (usedMonsters);
         if(unusedMonsters.isEmpty()){
             ArrayList<Monster> punteroAux = unusedMonsters;
             unusedMonsters = usedMonsters;
@@ -337,7 +338,8 @@ public class CardDealer {
     }
     
     public void initCards(){
-        
+        initTreasureCardDeck();
+        initMonsterCardDeck();
     }
     
 }

@@ -124,7 +124,7 @@ public class BadConsequence {
     public BadConsequence adjustToFitTreasureLists(ArrayList<Treasure> visibles, ArrayList<Treasure> hidden){
         BadConsequence bcAjustado;
         
-        if(specificVisibleTreasures.isEmpty() && specificHiddenTreasures.isEmpty()){
+        if(specificVisibleTreasures == null && specificHiddenTreasures == null){
             int nVisible = (visibles.size() > nVisibleTreasures ? nVisibleTreasures : visibles.size());
             int nHidden = (hidden.size() > nHiddenTreasures ? nHiddenTreasures : hidden.size());
             bcAjustado = new BadConsequence(text, 0, nVisible,nHidden);
