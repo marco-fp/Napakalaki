@@ -10,6 +10,9 @@ require_relative 'prize'
 require_relative 'bad_consequence'
 require_relative 'treasure_kind'
 require_relative 'monster'
+require_relative 'card_dealer'
+require_relative 'player'
+
 require 'singleton'
 
 
@@ -130,8 +133,6 @@ class Napakalaki
   private :initPlayers,:nextPlayer,:nextTurnIsAllowed,:setEnemies
   
 end
-
-puts "It's working. (Kind of)"
 
 =begin
 def nivel_superior_10(monsters)

@@ -208,5 +208,5 @@ class CardDealer
   end
   
   private_class_method :new
-  private :inittreasurecarddeck,:initmonstercarddeck,:shuffletreasures,:shufflemonsters
+  private :initTreasureCardDeck,:initMonsterCardDeck,:shuffleTreasures,:shuffleMonsters
 end

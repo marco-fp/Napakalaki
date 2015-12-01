@@ -62,12 +62,6 @@ class Player
     end
   end
   
-          BadConsequence bc = m.getBadConsequence();
-        int nLevels = bc.getLevels();
-        decrementLevels(nLevels);
-        BadConsequence pendingBad = bc.adjustToFitTreasureLists(visibleTreasures,hiddenTreasures);
-        setPendingBadConsequence(pendingBad);
-  
   def applyBadConsequence(m)
     bc = m.bc
     decrementLevels(bc.levels)
