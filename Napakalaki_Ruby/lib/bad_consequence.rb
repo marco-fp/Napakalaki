@@ -44,7 +44,7 @@ class BadConsequence
     if(@specificVisibleTreasures == nil && @specificHiddenTreasures == nil)
       nVisible = [visibles.size,@nVisibleTreasures].min
       nHidden = [hidden.size,@nHiddenTreasures].min
-      return BadConsequence.newLevelnumberOfTreasures(@text,0,nVisible,nHidden)
+      return BadConsequence.newLevelNumberOfTreasures(@text,0,nVisible,nHidden)
     else
       
       if(@specificVisibleTreasures != nil)
