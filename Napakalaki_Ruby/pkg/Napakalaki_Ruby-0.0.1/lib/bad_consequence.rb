@@ -41,29 +41,115 @@ class BadConsequence
   end
   
   def adjustToFitTreasureLists(visibles, hidden)
-    if(@specificVisibleTreasures.empty? && @specificHiddenTreasures.empty?)
+    if(@specificVisibleTreasures == nil && @specificHiddenTreasures == nil)
       nVisible = [visibles.size,@nVisibleTreasures].min
       nHidden = [hidden.size,@nHiddenTreasures].min
       return BadConsequence.newLevelnumberOfTreasures(@text,0,nVisible,nHidden)
     else
       
-      listaAjustadaVisibles = Array.new
-      listaAjustadaHidden = Array.new
+      if(@specificVisibleTreasures != nil)
+        listaAjustadaVisibles = Array.new
+      else
+        listaAjustadaVisibles = nil
+      end
       
-      visibleKind = visibles.collect{|t| t.getType}
-      hiddenKind = hidden.collect{|t| t.getType}
+      if(@specificHiddenTreasures != nil)
+        listaAjustadaHidden = Array.new
+      else
+        listaAjustadaHidden = nil
+      end
       
-      TreasureKind.each do |tKind|
-        listaAjustadaVisibles = listaAjustadaVisibles + 
+      visibleKind = visibles.collect{|t| t.tkind}
+      hiddenKind = hidden.collect{|t| t.tkind}
+      
+      [TreasureKind::ARMOR,TreasureKind::SHOES,TreasureKind::HELMET,TreasureKind::ONEHAND,TreasureKind::BOTHHANDS].each do |tKind|
+        if(@specificVisibleTreasures != nil)
+          listaAjustadaVisibles = listaAjustadaVisibles + 
           [tKind]*[visibleKind.select{|t| t == tKind}.size, @specificVisibleTreasures.select{|t| t == tKind}.size].min
-        
+        end
+        if(@specificHiddenTreasures != nil)
         listaAjustadaHidden = listaAjustadaHidden + 
           [tKind]*[hiddenKind.select{|t| t == tKind}.size, @specificHiddenTreasures.select{|t| t == tKind}.size].min
-      end
-      return BadConsequence.newSpecificTreasures(@text,0,listaAjustadaVisibles,listaAjustadaHidden)
+        end
+      end 
+      return BadConsequence.newLevelSpecificTreasures(@text,0,listaAjustadaVisibles,listaAjustadaHidden)
     end
-    
   end
+  
+=begin
+FORMA "JAVA-ONICA"
+def adjustToFitTreasureLists(visibles, hidden)
+    if(@specificVisibleTreasures == nil && @specificHiddenTreasures == nil)
+      nVisible = [visibles.size,@nVisibleTreasures].min
+      nHidden = [hidden.size,@nHiddenTreasures].min
+      return BadConsequence.newLevelnumberOfTreasures(@text,0,nVisible,nHidden)
+    else
+      
+      if(@specificVisibleTreasures != nil)
+        listaAjustadaVisibles = Array.new
+      else
+        listaAjustadaVisibles = nil
+      end
+      
+      if(@specificHiddenTreasures != nil)
+        listaAjustadaHidden = Array.new
+      else
+        listaAjustadaHidden = nil
+      end
+      
+      [TreasureKind::ARMOR,TreasureKind::SHOES,TreasureKind::HELMET,TreasureKind::ONEHAND,TreasureKind::BOTHHANDS].each do |tipo|
+        
+        jugador = 0
+        badC = 0
+        
+        if(@specificVisibleTreasures != nil)
+          for t in @specificVisibleTreasures
+            if(t == tipo)
+              badC += 1
+            end
+          end
+
+          for t in visibles
+            if(t.tkind == tipo)
+              jugador += 1
+            end
+          end
+
+          veces = [jugador,badC].min
+
+          veces.times do
+            listaAjustadaVisibles << tipo
+          end
+        end
+        
+        jugador = 0
+        badC = 0
+        
+        if(@specificHiddenTreasures != nil)
+          for t in @specificHiddenTreasures
+            if(t == tipo)
+              badC += 1
+            end
+          end
+
+          for t in hidden
+            if(t.tkind == tipo)
+              jugador += 1
+            end
+          end
+
+          veces = [jugador,badC].min
+
+          veces.times do
+            listaAjustadaHidden << tipo
+          end
+        end
+        
+      end 
+      return BadConsequence.newLevelSpecificTreasures(@text,0,listaAjustadaVisibles,listaAjustadaHidden)
+    end
+  end
+=end
   
   private_class_method :new
   attr_reader :text, :levels, :nVisibleTreasures, :nHiddenTreasures, :death, :specificVisibleTreasures, :specificHiddenTreasures

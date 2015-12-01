@@ -7,6 +7,7 @@
 =end 
 
 require_relative 'dice'
+require_relative 'combat_result'
 
 class Player
   
@@ -68,7 +69,7 @@ class Player
     bc = m.bc
     decrementLevels(bc.levels)
     pendingBad = bc.adjustToFitTreasureLists(@visibleTreasures, @hiddenTreasures)
-    setPendingBadConsequence(pendingBad)
+    @pendingBadConsequence = pendingBad
   end
   
   def canMakeTreasureVisible(t)
@@ -132,7 +133,7 @@ class Player
   
   def combat(m)
     myLevel = getCombatLevel()
-    monsterLevel = m.getCombatLevel()
+    monsterLevel = m.combatLevel
     
     if(myLevel > monsterLevel)
       applyPrize(m)
@@ -143,7 +144,7 @@ class Player
       end
     else
       applyBadConsequence(m)
-      return CombatResult.LOSE
+      return CombatResult::LOSE
     end
   end
   
@@ -168,7 +169,7 @@ class Player
   def discardHiddenTreasure(t)
     if(@hiddenTreasures != nil)
       @hiddenTreasures.delete(t)
-      if(@pendingBadConsequence != nil && !@pendingBadCosnequence.empty?)
+      if(@pendingBadConsequence != nil)
         @pendingBadConsequence.substractHiddenTreasure(t)
       end
       dieIfNoTreasure()
@@ -198,7 +199,7 @@ class Player
     dealer = CardDealer.instance
     dice = Dice.instance
     
-    brintToLife()
+    bringToLife()
     
     t = dealer.nextTreasure
     @hiddenTreasures << t

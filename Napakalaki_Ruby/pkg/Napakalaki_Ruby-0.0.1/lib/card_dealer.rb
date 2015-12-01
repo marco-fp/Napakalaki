@@ -76,7 +76,7 @@ class CardDealer
     @unusedMonsters << Monster.new('Ángeles de la noche ibicenca',14,prize,bad_consequence)
 
     prize = Prize.new(3,1)
-    bad_consequence = BadConsequence.newLevelSpecificTreasures('Pierdes todos tus tesoros visibles.', 0, BadConsequence::MAXTREASURES, 0)
+    bad_consequence = BadConsequence.newLevelNumberOfTreasures('Pierdes todos tus tesoros visibles.', 0, BadConsequence::MAXTREASURES, 0)
     @unusedMonsters << Monster.new('El gorrón en el umbral', 10, prize, bad_consequence)
 
     prize = Prize.new(2,1)
@@ -173,7 +173,7 @@ class CardDealer
       shuffleTreasures()
     end
     nextT = @unusedTreasures[0]
-    @unusedTreasures.remove(0)
+    @unusedTreasures.delete_at(0)
     return nextT
   end
   
