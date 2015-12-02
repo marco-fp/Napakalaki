@@ -11,7 +11,7 @@ require_relative 'combat_result'
 
 class Player
   
-  @@MAXLEVEL = 10
+  MAXLEVEL = 10
   
   def initialize(name)
     @name = name
@@ -110,7 +110,7 @@ class Player
     # Si es HELMET
     elsif(tipo == TreasureKind::HELMET)
       for treasure in @visibleTreasures
-        if(treasure.tkind == TreasureKind::SHOES)
+        if(treasure.tkind == TreasureKind::HELMET)
           return false
         end
       end
@@ -181,7 +181,7 @@ class Player
   end
   
   def validState()
-    if(@pendingBadConsequence.isEmpty || @hiddenTreasures.size<=4)
+    if(@pendingBadConsequence.isEmpty() || @hiddenTreasures.size<=4)
       return true
     end
     return false
