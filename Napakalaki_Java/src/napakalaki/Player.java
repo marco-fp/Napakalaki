@@ -79,15 +79,9 @@ public class Player {
     }
     
     private void applyBadConsequence(Monster m){
-        System.out.println("Aplicando mal rollo.\n");
         BadConsequence bc = m.getBadConsequence();
-        System.out.println(bc.toString()+"\n");
-        System.out.println("Nivel del jugador antes de decrementar:"+this.level+"\n");
         decrementLevels(bc.getLevels());
-        System.out.println("Nivel del jugador despues de decrementar:"+this.level+"\n");
-        
         BadConsequence pendingBad = bc.adjustToFitTreasureLists(visibleTreasures,hiddenTreasures);
-        System.out.println("Bad consequence ajustada al jugador:\n"+pendingBad.toString()+"\n");
         setPendingBadConsequence(pendingBad);
     }
     

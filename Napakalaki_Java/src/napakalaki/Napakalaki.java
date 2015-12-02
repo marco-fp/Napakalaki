@@ -26,13 +26,9 @@ public class Napakalaki {
     };
     
     private void initPlayers(ArrayList<String> names){
-        System.out.println ("inicializando jugadores \n");
-        System.out.println (players);
         for(String name : names){
-            System.out.println ("aniadiendo: "+name+"\n");
             players.add(new Player(name));
         }
-        System.out.println (players);
     }
     
     private Player nextPlayer(){
@@ -108,13 +104,9 @@ public class Napakalaki {
     public void initGame(ArrayList<String> names){
         
         initPlayers(names);
-        System.out.println("initPlayers\n");
         setEnemies();
-        System.out.println("SetEnemies \n");
         dealer.initCards();
-        System.out.println("dealer - init Cards \n");
         nextTurn();
-        System.out.println("next turn\n");
     }
     
     public Player getCurrentPlayer(){

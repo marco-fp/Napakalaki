@@ -204,7 +204,6 @@ class CardDealer
   end
   
   def initCards()
-    puts "LLEGA"
     initTreasureCardDeck()
     initMonsterCardDeck()
   end

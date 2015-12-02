@@ -97,9 +97,7 @@ class Napakalaki
   end
   
   def initGame(names)
-    puts "inicio init game"
     initPlayers(names)
-    puts "ha iniciado players"
     setEnemies()
     CardDealer.instance.initCards()
     nextTurn()
