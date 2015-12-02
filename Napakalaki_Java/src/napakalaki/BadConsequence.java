@@ -44,7 +44,7 @@ public class BadConsequence {
         this.death = death;
         this.levels = Player.MAXLEVEL;
         this.nVisibleTreasures = MAXTREASURES;
-        this.nHiddenTreasures = 0;
+        this.nHiddenTreasures = MAXTREASURES;
     }
     
     public BadConsequence(String text, int levels, ArrayList<TreasureKind> tVisible, ArrayList<TreasureKind> tHidden){
