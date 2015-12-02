@@ -163,7 +163,7 @@ def adjustToFitTreasureLists(visibles, hidden)
   end
   
   def self.newDeath(aText,death)
-    new(aText,0,0,0,nil,nil,death)
+    new(aText,Player::MAXLEVEL,MAXTREASURES,0,nil,nil,death)
   end
   
   def to_s
