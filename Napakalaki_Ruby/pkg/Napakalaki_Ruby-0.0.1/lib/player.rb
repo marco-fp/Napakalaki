@@ -48,7 +48,7 @@ class Player
   
   def decrementLevels(i)
     if(i>=@level)
-      @level -= i
+      @level = 1
     else
       @level -= i
     end
