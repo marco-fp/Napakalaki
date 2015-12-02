@@ -15,4 +15,8 @@ class Treasure
   
   attr_reader :name,:bonus,:tkind
   
+  def to_s
+    "#{@name}(#{@bonus}-#{@tkind}) \n"
+  end
+  
 end

@@ -15,7 +15,7 @@ class Player
   
   def initialize(name)
     @name = name
-    @level = 0
+    @level = 1
     @dead = true
     @canISteal = true
     @enemy = nil
@@ -47,11 +47,15 @@ class Player
   end
   
   def decrementLevels(i)
-    @level-=i
+    if(i>=@level)
+      @level -= i
+    else
+      @level -= i
+    end
   end
   
   def applyPrize(m)
-    nLevels = m.getLevelGained()
+    nLevels = m.getLevelsGained()
     incrementLevels(nLevels)
     nTreasures = m.getTreasuresGained()
     if(nTreasures > 0)
@@ -159,7 +163,7 @@ class Player
   def discardVisibleTreasure(t)
     if(@visibleTreasures != nil)
       @visibleTreasures.delete(t)
-      if(@pendingBadConsequence != nil && !@pendingBadConsequence.empty?)
+      if(@pendingBadConsequence != nil)
         @pendingBadConsequence.substractVisibleTreasure(t)
       end
       dieIfNoTreasures()
@@ -177,12 +181,10 @@ class Player
   end
   
   def validState()
-    
     if(@pendingBadConsequence.isEmpty || @hiddenTreasures.size<=4)
       return true
     end
     return false
-    
   end
   
   def howManyVisibleTreasures(tKind)
@@ -258,6 +260,10 @@ class Player
       discardHiddenTreasure(ht)
     end
     
+  end
+  
+  def to_s
+    "#{@name}(#{getCombatLevel()}) \n"
   end
   
 end
