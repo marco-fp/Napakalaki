@@ -7,8 +7,10 @@ package napakalaki;
 
 public class Cultist {
     private int gainedLevels;
+    private String name;
     
-    public Cultist(int gainedLevels){
+    public Cultist(String name, int gainedLevels){
+        this.name = name;
         this.gainedLevels = gainedLevels;
     }
     

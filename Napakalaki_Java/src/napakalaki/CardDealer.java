@@ -132,12 +132,12 @@ public class CardDealer {
     }
     
     private void initCultistCardDeck(){
-        unusedCultists.add(new Cultist(1));
-        unusedCultists.add(new Cultist(1));
-        unusedCultists.add(new Cultist(1));
-        unusedCultists.add(new Cultist(1));
-        unusedCultists.add(new Cultist(2));
-        unusedCultists.add(new Cultist(2));
+        unusedCultists.add(new Cultist("Cultist",1));
+        unusedCultists.add(new Cultist("Cultist",1));
+        unusedCultists.add(new Cultist("Cultist",1));
+        unusedCultists.add(new Cultist("Cultist",1));
+        unusedCultists.add(new Cultist("Cultist",2));
+        unusedCultists.add(new Cultist("Cultist",2));
     }
 
     private void initMonsterCardDeck(){
