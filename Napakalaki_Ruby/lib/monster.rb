@@ -8,17 +8,22 @@
 
 class Monster
   
-  def initialize(name, level, prize, bc)
+  def initialize(name, level, prize, bc, ic = 0)
     @name = name
     @combatLevel = level
     @prize = prize
     @bc = bc
+    @levelChangeAgainstCultistPlayer = ic
   end
   
-  attr_reader :name, :combatLevel, :bc
+  attr_reader :name, :combatLevel, :bc, :levelChangeAgainstCultistPlayer
 
   def getLevelsGained()
     @prize.level
+  end
+  
+  def getCombatLevelAgainstCultistPlayer()
+    return (@combatLevel + @levelChangeAgainstCultistPlayer)
   end
   
   def getTreasuresGained()

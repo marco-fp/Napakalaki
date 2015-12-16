@@ -10,70 +10,25 @@ class BadConsequence
   
   MAXTREASURES = 10
   
-  def initialize(aText, someLevels, someVisibleTreasures, someHiddenTreasures, someSpecificVisibleTreasures, someSpecificHiddenTreasures, death)
+  def initialize(aText, someLevels)
     @text = aText
     @levels = someLevels
-    @nVisibleTreasures = someVisibleTreasures
-    @nHiddenTreasures = someHiddenTreasures
-    @specificVisibleTreasures = someSpecificVisibleTreasures
-    @specificHiddenTreasures = someSpecificHiddenTreasures
-    @death = death
   end
   
   def isEmpty()
-    if(@nVisibleTreasures == 0 && @nHiddenTreasures == 0 && (@specificHiddenTreasures.nil? || @specificHiddenTreasures.empty?) &&
-           (@specificVisibleTreasures.nil? || @specificVisibleTreasures.empty? ) )
-            return true
-    end
-    return false
+    return true
   end
   
   def substractVisibleTreasure(t)
-    unless( @specificVisibleTreasures.empty?)
-      @specificVisibleTreasures.delete(t.tkind)
-    end
+    
   end
   
   def substractHiddenTreasure(t)
-    unless( @specificHiddenTreasures.empty?)
-      @specificHiddenTreasures.delete(t.tkind)
-    end
+    
   end
   
   def adjustToFitTreasureLists(visibles, hidden)
-    if(@specificVisibleTreasures == nil && @specificHiddenTreasures == nil)
-      nVisible = [visibles.size,@nVisibleTreasures].min
-      nHidden = [hidden.size,@nHiddenTreasures].min
-      return BadConsequence.newLevelNumberOfTreasures(@text,0,nVisible,nHidden)
-    else
-      
-      if(@specificVisibleTreasures != nil)
-        listaAjustadaVisibles = Array.new
-      else
-        listaAjustadaVisibles = nil
-      end
-      
-      if(@specificHiddenTreasures != nil)
-        listaAjustadaHidden = Array.new
-      else
-        listaAjustadaHidden = nil
-      end
-      
-      visibleKind = visibles.collect{|t| t.tkind}
-      hiddenKind = hidden.collect{|t| t.tkind}
-      
-      [TreasureKind::ARMOR,TreasureKind::SHOES,TreasureKind::HELMET,TreasureKind::ONEHAND,TreasureKind::BOTHHANDS].each do |tKind|
-        if(@specificVisibleTreasures != nil)
-          listaAjustadaVisibles = listaAjustadaVisibles + 
-          [tKind]*[visibleKind.select{|t| t == tKind}.size, @specificVisibleTreasures.select{|t| t == tKind}.size].min
-        end
-        if(@specificHiddenTreasures != nil)
-        listaAjustadaHidden = listaAjustadaHidden + 
-          [tKind]*[hiddenKind.select{|t| t == tKind}.size, @specificHiddenTreasures.select{|t| t == tKind}.size].min
-        end
-      end 
-      return BadConsequence.newLevelSpecificTreasures(@text,0,listaAjustadaVisibles,listaAjustadaHidden)
-    end
+    return nil
   end
   
 =begin
@@ -152,28 +107,11 @@ def adjustToFitTreasureLists(visibles, hidden)
 =end
   
   private_class_method :new
-  attr_reader :text, :levels, :nVisibleTreasures, :nHiddenTreasures, :death, :specificVisibleTreasures, :specificHiddenTreasures
-  
-  def self.newLevelNumberOfTreasures(aText, someLevels, someVisibleTreasures, someHiddenTreasures)
-    new(aText,someLevels,someVisibleTreasures, someHiddenTreasures,nil,nil,false)
-  end
-  
-  def self.newLevelSpecificTreasures(aText, someLevels, someSpecificVisibleTreasures, someSpecificHiddenTreasures)
-    new(aText, someLevels, 0,0,someSpecificVisibleTreasures,someSpecificHiddenTreasures,false)
-  end
-  
-  def self.newDeath(aText,death)
-    new(aText,Player::MAXLEVEL,MAXTREASURES,MAXTREASURES,nil,nil,death)
-  end
+  attr_reader :text, :levels
   
   def to_s
-    "--- Bad Consequence --- \n
-    Texto: #{@text} \n Niveles: #{@levels} \n
-    nVisibles: #{@nVisibleTreasures} \n
-    nHidden: #{@nHiddenTreasures} \n
-    SpecificVisible: #{@specificVisibleTreasures} \n
-    SpecificHidden: #{@specificHiddenTreasures} \n
-    Death: #{@death} \n"
+    "--- Bad Consequence Generico --- \n
+    Texto: #{@text} \n Niveles: #{@levels} \n"
   end
   
 end

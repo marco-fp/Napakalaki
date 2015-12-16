@@ -12,12 +12,22 @@ public class Monster {
     private int combatLevel;
     private Prize prize;
     private BadConsequence badConsequence;
+    private int levelChangeAgainstCultistPlayer = 0;
     
     Monster(String name, int level, BadConsequence bc, Prize prize){
         this.name = name;
         this.combatLevel = level;
         this.badConsequence = bc;
         this.prize = prize;
+        this.levelChangeAgainstCultistPlayer = 0;
+    }
+    
+    Monster(String name, int level, BadConsequence bc, Prize prize, int IC){
+        this.name = name;
+        this.combatLevel = level;
+        this.badConsequence = bc;
+        this.prize = prize;
+        this.levelChangeAgainstCultistPlayer = IC;
     }
 
     public String getName() {
@@ -36,6 +46,11 @@ public class Monster {
         return prize.getTreasure();
     }
 
+    public int getCombatLevelAgainstCultistPlayer() {
+        return combatLevel+levelChangeAgainstCultistPlayer;
+    }
+
+    
     // Eliminar
     public Prize getPrize() {
         return prize;

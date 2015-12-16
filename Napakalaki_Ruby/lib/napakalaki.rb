@@ -71,8 +71,23 @@ class Napakalaki
   end
   
   def developCombat()
+    
     result = @currentPlayer.combat(@currentMonster)
     @dealer.giveMonsterBack(@currentMonster)
+    if(result == CombatResult::LOSEANDCONVERT)
+      cultist = @dealer.nextCultist
+      cultistPlayer = CultistPlayer.new(@currentPlayer, cultist)
+      
+      for player in @players
+          if(player.enemy == @currentPlayer)
+            player.enemy = cultistPlayer
+          end
+      end
+      
+      @players[@players.index(@currentPlayer)] = cultistPlayer
+      @currentPlayer = cultistPlayer
+    end
+    
     return result
   end
   

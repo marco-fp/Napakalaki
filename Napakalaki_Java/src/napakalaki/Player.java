@@ -13,13 +13,13 @@ public class Player {
  
     static final int MAXLEVEL = 10;
     
-    private String name;
+    protected String name;
     private int level;
     private boolean dead = true;
     private boolean canISteal = true;
     
     
-    Player enemy = null;
+    protected Player enemy = null;
     ArrayList<Treasure> visibleTreasures = null;
     ArrayList<Treasure> hiddenTreasures = null;
     BadConsequence pendingBadConsequence = null;
@@ -32,6 +32,25 @@ public class Player {
         this.hiddenTreasures = new ArrayList();
     }
     
+    public Player(Player p){
+        this.name = p.name;
+        this.level = p.level;
+        this.visibleTreasures = p.visibleTreasures;
+        this.hiddenTreasures = p.hiddenTreasures;
+        this.pendingBadConsequence = p.pendingBadConsequence;
+        this.dead = p.dead;
+        this.canISteal = p.canISteal;
+        this.enemy = p.enemy;
+    }
+    
+    protected int getOponentLevel(Monster m){
+        return m.getCombatLevel();
+    }
+    
+   protected boolean shouldConvert(){
+        return Dice.getInstance().nextNumber() == 1;
+   }
+    
     public String getName(){
         return this.name;
     }
@@ -40,7 +59,7 @@ public class Player {
         this.dead = false;
     }
     
-    private int getCombatLevel(){
+    protected int getCombatLevel(){
         int combatLevel = this.level;
         
         for(Treasure tesoro : visibleTreasures)
@@ -159,7 +178,7 @@ public class Player {
     
     public CombatResult combat(Monster m){
         int myLevel = getCombatLevel();
-        int monsterLevel = m.getCombatLevel();
+        int monsterLevel = getOponentLevel(m);
         
         if(myLevel > monsterLevel){
             applyPrize(m);
@@ -170,7 +189,10 @@ public class Player {
         }
         else{
             applyBadConsequence(m);
-            return CombatResult.LOSE;
+            if(shouldConvert())
+                return CombatResult.LOSEANDCONVERT;
+            else
+                return CombatResult.LOSE;
         }
     }
     
@@ -253,6 +275,10 @@ public class Player {
         this.enemy = enemy;
     }
     
+    protected Player getEnemy(){
+        return this.enemy;
+    }
+    
     private Treasure giveMeATreasure(){
         Random rand = new Random(); 
         return hiddenTreasures.get(rand.nextInt(hiddenTreasures.size()-1));
@@ -263,7 +289,7 @@ public class Player {
     }
     
     private boolean canYouGiveMeATreasure(){
-        if(!visibleTreasures.isEmpty() || !hiddenTreasures.isEmpty())
+        if(!hiddenTreasures.isEmpty() || hiddenTreasures != null)
             return true;
         else
             return false;
