@@ -38,6 +38,7 @@ public class PlayerNamesCapture extends javax.swing.JDialog {
         buttonCancel = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setLocation(new java.awt.Point(900, 400));
 
         labelPlayer1.setText("Player 1");
 

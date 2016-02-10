@@ -8,6 +8,8 @@ package GUI;
 
 import NapakalakiGame.CombatResult;
 import NapakalakiGame.Napakalaki;
+import static java.lang.System.exit;
+import javax.swing.JOptionPane;
 
 public class NapakalakiView extends javax.swing.JFrame {
 
@@ -46,6 +48,9 @@ public class NapakalakiView extends javax.swing.JFrame {
     }
     
     public void faseTres(CombatResult resultadoCombate){
+        if(resultadoCombate == CombatResult.WINGAME)
+            finDelJuego();
+        
         labelCombatResult.setText(resultadoCombate.toString());
         combatPanel.setVisible(true);
         playerView.update();
@@ -55,6 +60,11 @@ public class NapakalakiView extends javax.swing.JFrame {
         botonCombat.setEnabled(false);
         update();
         repaint();
+    }
+    
+    public void finDelJuego(){
+        JOptionPane.showMessageDialog(null, "¡FIN DEL JUEGO! \n Ha ganado "+playerView.playerModel.getName()+"!");
+        exit(0);
     }
     
     public void setNapakalaki(Napakalaki napa){
@@ -85,6 +95,8 @@ public class NapakalakiView extends javax.swing.JFrame {
         playerView = new GUI.PlayerView();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Napakalaki - Práctica 5 - Marco Manuel Fernández Pranno ( 2016 )");
+        setLocation(new java.awt.Point(250, 100));
 
         botonMeetTheMonster.setText("Meet the monster");
         botonMeetTheMonster.addActionListener(new java.awt.event.ActionListener() {
@@ -167,7 +179,8 @@ public class NapakalakiView extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(botonMeetTheMonster)
                     .addComponent(botonCombat)
-                    .addComponent(botonNextTurn)))
+                    .addComponent(botonNextTurn))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         pack();

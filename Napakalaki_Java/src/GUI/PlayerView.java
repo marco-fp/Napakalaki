@@ -269,10 +269,6 @@ public class PlayerView extends javax.swing.JPanel {
         napakalakiModel.discardVisibleTreasures(selVisible);
         setPlayer(napakalakiModel.getCurrentPlayer(), napakalakiView);
         napakalakiView.update();
-        System.out.println("niveles: "+playerModel.getPendingBadConsequence().getLevels()+"\n");
-        System.out.println("nVisible: "+playerModel.getPendingBadConsequence().getNVisibleTreasures()+"\n");
-        System.out.println("nHidden: "+playerModel.getPendingBadConsequence().getNHiddenTreasures()+"\n");
-        System.out.println("Empty?: "+playerModel.getPendingBadConsequence().isEmpty()+"\n");
         pendingBadConsequenceView.setPendingBadConsequence(playerModel.getPendingBadConsequence());
     }//GEN-LAST:event_botonDiscardTreasureActionPerformed
 
