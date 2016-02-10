@@ -294,7 +294,7 @@ public class Player {
     }
     
     private boolean canYouGiveMeATreasure(){
-        if(!hiddenTreasures.isEmpty() || hiddenTreasures != null)
+        if(!hiddenTreasures.isEmpty() && hiddenTreasures != null)
             return true;
         else
             return false;
