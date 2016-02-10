@@ -27,7 +27,7 @@ public class NapakalakiView extends javax.swing.JFrame {
         playerView.setNapakalaki(napakalakiModel);
         
         combatPanel.setVisible(false);
-        monsterView.setVisible(false);
+        monsterView.mostrarContenido(false);
         playerView.getPBadConsequenceView().setVisible(false);
         playerView.setBotonRobar(false);
         botonNextTurn.setEnabled(false);
@@ -39,7 +39,7 @@ public class NapakalakiView extends javax.swing.JFrame {
     }
     
     public void faseDos(){
-        monsterView.setVisible(true);
+        monsterView.mostrarContenido(true);
         botonCombat.setEnabled(true);
         playerView.setBotonesDescartar(false);
         playerView.setBotonMakeVisible(false);

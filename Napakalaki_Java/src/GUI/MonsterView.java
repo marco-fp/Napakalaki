@@ -26,6 +26,16 @@ public class MonsterView extends javax.swing.JPanel {
         repaint();
     }
     
+    void mostrarContenido(boolean estado) {
+        labelLevel.setVisible(estado);
+        labelName.setVisible(estado);
+        labelChangeAgainstCultist.setVisible(estado);
+        jLabel1.setVisible(estado);
+        jLabel2.setVisible(estado);
+        jLabel3.setVisible(estado);
+        badConsequenceView.setVisible(estado);
+        prizeView.setVisible(estado);
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -105,4 +115,6 @@ public class MonsterView extends javax.swing.JPanel {
     private javax.swing.JLabel labelName;
     private GUI.PrizeView prizeView;
     // End of variables declaration//GEN-END:variables
+
+
 }
