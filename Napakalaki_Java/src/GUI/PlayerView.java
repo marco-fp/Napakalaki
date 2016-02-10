@@ -55,8 +55,6 @@ public class PlayerView extends javax.swing.JPanel {
             
             botonMakeVisible.setEnabled(!playerModel.getHiddenTreasures().isEmpty());
 
-            botonStealTreasure.setEnabled(playerModel.canISteal());
-
             
             repaint();
             revalidate();
@@ -72,8 +70,11 @@ public class PlayerView extends javax.swing.JPanel {
         return pendingBadConsequenceView;
     }
     
-    public javax.swing.JButton getBotonRobar(){
-        return botonStealTreasure;
+    public void setBotonRobar(boolean estado){
+        if(estado == true && playerModel.canISteal())
+            botonStealTreasure.setEnabled(true);
+        else
+            botonStealTreasure.setEnabled(false);
     }
     
     public void setBotonesDescartar(boolean estado){
@@ -255,8 +256,10 @@ public class PlayerView extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "No has podido robar nada!");
         } else{
             JOptionPane.showMessageDialog(null, "Has robado un tesoro!");
+            playerModel.haveStolen();
         }
         setPlayer(napakalakiModel.getCurrentPlayer(), napakalakiView);
+        botonStealTreasure.setEnabled(false);
     }//GEN-LAST:event_botonStealTreasureActionPerformed
 
     private void botonDiscardTreasureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonDiscardTreasureActionPerformed

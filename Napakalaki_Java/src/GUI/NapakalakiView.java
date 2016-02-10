@@ -27,7 +27,7 @@ public class NapakalakiView extends javax.swing.JFrame {
         combatPanel.setVisible(false);
         monsterView.setVisible(false);
         playerView.getPBadConsequenceView().setVisible(false);
-        playerView.getBotonRobar().setVisible(false);
+        playerView.setBotonRobar(false);
         botonNextTurn.setEnabled(false);
         botonCombat.setEnabled(false);
         botonMeetTheMonster.setEnabled(true);
@@ -51,7 +51,7 @@ public class NapakalakiView extends javax.swing.JFrame {
         playerView.update();
         playerView.setBotonMakeVisible(true);
         playerView.setBotonesDescartar(true);
-        playerView.getBotonRobar().setVisible(true);
+        playerView.setBotonRobar(true);
         botonCombat.setEnabled(false);
         update();
         repaint();

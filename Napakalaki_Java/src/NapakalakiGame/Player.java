@@ -300,7 +300,7 @@ public class Player {
             return false;
     }
     
-    private void haveStolen(){
+    public void haveStolen(){
         this.canISteal = false;
     }
     
