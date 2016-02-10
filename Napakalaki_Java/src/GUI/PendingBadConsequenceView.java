@@ -21,13 +21,20 @@ public class PendingBadConsequenceView extends javax.swing.JPanel {
     }
 
     public void setPendingBadConsequence(BadConsequence pbc){
-        pendingBadConsequenceModel = pbc;
-        labelNVisibles.setText(Integer.toString(pbc.getNVisibleTreasures()));
-        labelNOcultos.setText(Integer.toString(pbc.getNHiddenTreasures()));
-        if(pbc.getSpecificVisibleTreasures()!=null)
-            labelEspVisibles.setText(pbc.getSpecificVisibleTreasures().toString());
-        if(pbc.getSpecificHiddenTreasures()!=null)
-            labelEspOcultos.setText(pbc.getSpecificHiddenTreasures().toString());
+        if( pbc != null){
+            pendingBadConsequenceModel = pbc;
+            labelNVisibles.setText(Integer.toString(pbc.getNVisibleTreasures()));
+            labelNOcultos.setText(Integer.toString(pbc.getNHiddenTreasures()));
+            if(pbc.getSpecificVisibleTreasures()!=null)
+                labelEspVisibles.setText(pbc.getSpecificVisibleTreasures().toString());
+            if(pbc.getSpecificHiddenTreasures()!=null)
+                labelEspOcultos.setText(pbc.getSpecificHiddenTreasures().toString());
+        } else {
+            labelNOcultos.setText("");
+            labelNVisibles.setText("");
+            labelEspOcultos.setText("");
+            labelEspVisibles.setText("");
+        }
         repaint();
     }
     

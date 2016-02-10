@@ -71,7 +71,7 @@ public class SpecificBadConsequence extends BadConsequence {
     
     @Override
     public boolean isEmpty(){
-        if((specificHiddenTreasures == null) && (specificVisibleTreasures == null))
+        if(((specificHiddenTreasures == null) && (specificVisibleTreasures == null)) || (specificHiddenTreasures.isEmpty() && specificVisibleTreasures.isEmpty()))
             return true;
         else
             return false;

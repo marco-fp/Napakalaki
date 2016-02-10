@@ -15,31 +15,58 @@ public class NapakalakiView extends javax.swing.JFrame {
     
     public NapakalakiView() {
         initComponents();
+    }
+    
+    public void faseUno(){
+        if (napakalakiModel.getCurrentMonster() != null) {
+            monsterView.setMonster(napakalakiModel.getCurrentMonster());
+        }
+        playerView.setPlayer(napakalakiModel.getCurrentPlayer(),this);
+        playerView.setNapakalaki(napakalakiModel);
+        
+        combatPanel.setVisible(false);
+        monsterView.setVisible(false);
+        playerView.getPBadConsequenceView().setVisible(false);
+        playerView.getBotonRobar().setVisible(false);
         botonNextTurn.setEnabled(false);
+        botonCombat.setEnabled(false);
+        botonMeetTheMonster.setEnabled(true);
+        
+        playerView.update();
+        repaint();
+    }
+    
+    public void faseDos(){
+        monsterView.setVisible(true);
+        botonCombat.setEnabled(true);
+        playerView.setBotonesDescartar(false);
+        playerView.setBotonMakeVisible(false);
+        botonMeetTheMonster.setEnabled(false);
+        repaint();
+    }
+    
+    public void faseTres(CombatResult resultadoCombate){
+        labelCombatResult.setText(resultadoCombate.toString());
+        combatPanel.setVisible(true);
+        playerView.update();
+        playerView.setBotonMakeVisible(true);
+        playerView.setBotonesDescartar(true);
+        playerView.getBotonRobar().setVisible(true);
+        botonCombat.setEnabled(false);
+        update();
+        repaint();
     }
     
     public void setNapakalaki(Napakalaki napa){
         napakalakiModel = napa;
-        if(napakalakiModel.getCurrentMonster()!=null) 
-            monsterView.setMonster(napakalakiModel.getCurrentMonster());
-        
-        monsterView.setVisible(false);
-        botonCombat.setEnabled(false);
-        
-        playerView.setPlayer(napakalakiModel.getCurrentPlayer(),this);
-        playerView.setNapakalaki(napa);
-        
-        botonMeetTheMonster.setEnabled(true);
-        
-        update();
-        
-        repaint();
+        faseUno();
     }
     
     public void update(){
         if(playerView.getPBadConsequenceView().getModel() != null && playerView.getPBadConsequenceView().getModel().isEmpty()){
             botonNextTurn.setEnabled(true);
         }
+        
         playerView.update();
         repaint();
     }
@@ -147,21 +174,20 @@ public class NapakalakiView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonMeetTheMonsterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonMeetTheMonsterActionPerformed
-        monsterView.setVisible(true);
-        botonCombat.setEnabled(true);
-        botonMeetTheMonster.setEnabled(false);
+        faseDos();
     }//GEN-LAST:event_botonMeetTheMonsterActionPerformed
 
     private void botonCombatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCombatActionPerformed
-        CombatResult cr = napakalakiModel.developCombat();
-        labelCombatResult.setText(cr.toString());
-        setNapakalaki(napakalakiModel);
+        faseTres(napakalakiModel.developCombat());
     }//GEN-LAST:event_botonCombatActionPerformed
 
     private void botonNextTurnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonNextTurnActionPerformed
+        playerView.getPBadConsequenceView().setPendingBadConsequence(null);
         boolean success = napakalakiModel.nextTurn();
-        if(success)
+        if(success){
+            labelCombatResult.setText("");
             setNapakalaki(napakalakiModel);
+        }
     }//GEN-LAST:event_botonNextTurnActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -72,6 +72,19 @@ public class PlayerView extends javax.swing.JPanel {
         return pendingBadConsequenceView;
     }
     
+    public javax.swing.JButton getBotonRobar(){
+        return botonStealTreasure;
+    }
+    
+    public void setBotonesDescartar(boolean estado){
+        botonDiscardTreasure.setEnabled(estado);
+        botonDiscardAllTreasures.setEnabled(estado);
+    }
+    
+    public void setBotonMakeVisible(boolean estado){
+        botonMakeVisible.setEnabled(estado);
+    }
+    
     public void setNapakalaki(Napakalaki nap){
         napakalakiModel = nap;
     }
