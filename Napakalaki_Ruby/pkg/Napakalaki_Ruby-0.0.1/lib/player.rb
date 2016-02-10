@@ -13,19 +13,39 @@ class Player
   
   MAXLEVEL = 10
   
-  def initialize(name)
-    @name = name
-    @level = 1
-    @dead = true
-    @canISteal = true
-    @enemy = nil
-    @visibleTreasures = Array.new
-    @hiddenTreasures = Array.new
-    @pendingBadConsequence = nil
+  def initialize(name, p = nil)
+    if(p.nil?)
+      @name = name
+      @level = 1
+      @dead = true
+      @canISteal = true
+      @enemy = nil
+      @visibleTreasures = Array.new
+      @hiddenTreasures = Array.new
+      @pendingBadConsequence = nil
+    else
+      @name = p.name
+      @level = p.level
+      @visibleTreasures = p.visibleTreasures
+      @hiddenTreasures = p.hiddenTreasures
+      @pendingBadConsequence = p.pendingBadConsequence
+      @dead = p.dead
+      @canISteal = p.canISteal
+      @enemy = p.enemy
+    end
+
   end
 
-  attr_reader :name,:level,:canISteal,:dead,:hiddenTreasures,:visibleTreasures
+  attr_reader :name,:level,:canISteal,:dead,:hiddenTreasures,:visibleTreasures, :pendingBadConsequence, :enemy
   attr_writer :pendingBadConsequence, :enemy
+  
+  def getOponentLevel(m)
+    return m.combatLevel
+  end
+  
+  def shouldConvert()
+    return (Dice.instance.nextNumber == 1)
+  end
   
   def getCombatLevel()
     
@@ -137,7 +157,7 @@ class Player
   
   def combat(m)
     myLevel = getCombatLevel()
-    monsterLevel = m.combatLevel
+    monsterLevel = getOponentLevel(m)
     
     if(myLevel > monsterLevel)
       applyPrize(m)
@@ -148,7 +168,11 @@ class Player
       end
     else
       applyBadConsequence(m)
-      return CombatResult::LOSE
+      if(shouldConvert())
+        return CombatResult::LOSEANDCONVERT
+      else
+        return CombatResult::LOSE
+      end
     end
   end
   
@@ -238,7 +262,7 @@ class Player
   end
   
   def canYouGiveMeATreasure()
-    if(! @visibleTreasures.empty? || ! @hiddenTreasures.empty?)
+    if( @hiddenTreasures != nil || ! @hiddenTreasures.empty?)
       return true
     end
     return false
