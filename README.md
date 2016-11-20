@@ -1,7 +1,4 @@
 # Napakalaki
 
-Practica de la asignatura PDOO.
+Munchkin-like game written in Java (with GUI) and Ruby (console).
 
-- Marco Manuel Fernández Pranno
-
-*Universidad de Granada, 2015*
